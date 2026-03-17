@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Keynetics Labs | Precision Movement Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A1628;--teal:#006B8A;--teal2:#00A3C4;--white:#FFFFFF;--off:#F4F7FA;--border:#D6E4EC;--dark:#1A2A3A;--mid:#4A6278;--muted:#7A8FA6;--green:#0D7A4E;--amber:#D97706;--purple:#6D28D9;--red:#C0392B;--shadow:0 2px 16px rgba(10,22,40,0.08);--shadow-lg:0 8px 40px rgba(10,22,40,0.13);--radius:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--dark);background:var(--white);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--navy);text-decoration:none;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px}
+.nav-logo span{color:var(--teal2)}
+.nav-logo-dot{width:28px;height:28px;border-radius:7px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-logo-dot::after{content:'';width:10px;height:10px;border-radius:50%;background:var(--teal2)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{text-decoration:none;color:var(--mid);font-size:14px;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a.active{color:var(--navy);font-weight:700;border-bottom:2px solid var(--teal2);padding-bottom:2px}
+.nav-cta{background:var(--navy);color:var(--white)!important;padding:8px 20px;border-radius:8px;font-weight:600!important;transition:background 0.2s!important;border-bottom:none!important}
+.nav-cta:hover{background:var(--teal)!important}
+.hero-wrap{background:var(--navy);position:relative;overflow:hidden}
+.hero-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 110%,rgba(0,163,196,0.2) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;padding:96px 40px 80px;text-align:center;position:relative}
+.hero-inner .hero-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--teal2);text-transform:uppercase;background:rgba(0,163,196,0.12);padding:5px 14px;border-radius:20px;margin-bottom:20px;border:1px solid rgba(0,163,196,0.25)}
+.hero-inner h1{font-family:'Syne',sans-serif;font-size:clamp(30px,4.5vw,52px);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.08;margin-bottom:20px}
+.hero-inner h1 em{color:var(--teal2);font-style:normal}
+.hero-inner p{color:rgba(255,255,255,0.6);font-size:17px;max-width:580px;margin:0 auto;line-height:1.8}
+section.wrap{padding:80px 40px;max-width:1100px;margin:0 auto}
+.sec-eye{font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--teal);text-transform:uppercase;display:block;margin-bottom:10px}
+.sec-h2{font-family:'Syne',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;color:var(--navy);letter-spacing:-0.02em;margin-bottom:14px}
+.sec-sub{color:var(--mid);font-size:16px;max-width:520px;line-height:1.7}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.bg-off{background:var(--off);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.value-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px 20px;border-top:4px solid}
+.value-card h4{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.value-card p{font-size:13.5px;color:var(--mid);line-height:1.65}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.team-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px 16px;text-align:center;transition:border-color 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;align-items:center}
+.team-card:hover{border-color:var(--teal2);box-shadow:var(--shadow-lg)}
+.team-avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Syne',sans-serif;font-size:22px;font-weight:700}
+.team-card h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.team-card .role{font-size:12px;color:var(--teal);font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.06em}
+.team-card p{font-size:12px;color:var(--mid);line-height:1.65}
+.timeline{display:flex;flex-direction:column;gap:0;position:relative;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:var(--border)}
+.tl-item{padding:0 0 32px 28px;position:relative}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{width:16px;height:16px;border-radius:50%;position:absolute;left:-24px;top:4px;border:2px solid}
+.tl-item h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.tl-item .date{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;display:block}
+.tl-item p{font-size:14px;color:var(--mid);line-height:1.65}
+.vision-band{background:var(--navy);padding:72px 40px;text-align:center;position:relative;overflow:hidden}
+.vision-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 100%,rgba(0,163,196,0.15) 0%,transparent 60%)}
+.vision-band blockquote{font-family:'Syne',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:600;color:white;max-width:680px;margin:0 auto;line-height:1.5;position:relative}
+.vision-band blockquote em{color:var(--teal2);font-style:normal}
+.cta-band{background:var(--teal);padding:72px 40px;text-align:center}
+.cta-band h2{font-family:'Syne',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;color:white;margin-bottom:14px;letter-spacing:-0.02em}
+.cta-band p{color:rgba(255,255,255,0.75);font-size:16px;max-width:480px;margin:0 auto 32px}
+.btn-primary{background:white;color:var(--teal);padding:13px 28px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:background 0.2s}
+.btn-primary:hover{background:var(--navy);color:white}
+footer{background:var(--navy);padding:60px 40px 32px;border-top:1px solid rgba(255,255,255,0.06)}
+.ft-inner{max-width:1100px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.ft-brand p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;max-width:240px;margin-top:12px}
+.ft-col h4{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px}
+.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:10px;transition:color 0.2s}
+.ft-col a:hover{color:var(--teal2)}
+.ft-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-bottom p,.ft-bottom a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none}
+.ft-bottom a:hover{color:var(--teal2)}
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.hero-inner{padding:60px 20px 48px}section.wrap{padding:60px 20px}.grid-2,.values-grid,.team-grid{grid-template-columns:1fr 1fr}.ft-top{grid-template-columns:1fr 1fr}.cta-band{padding:52px 20px}footer{padding:48px 20px 24px}}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-logo-dot"></div>KEYNETICS<span>LABS</span></a>
+  <div class="nav-links">
+    <a href="platform.html">Platform</a>
+    <a href="trainers.html">For Trainers</a>
+    <a href="clinical.html">Clinical</a>
+    <a href="about.html" class="active">About</a>
+    <a href="resources.html">Resources</a>
+    <a href="keynetics-pricing.html">Pricing</a>
+    <a href="#" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<div class="hero-wrap">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">About Keynetics Labs</div>
+    <h1>Built by Practitioners.<br><em>Powered by Data.</em></h1>
+    <p>Keynetics Labs was founded on a single belief: coaches who can prove their results deserve the platform to do it. We built the system we wished existed.</p>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="wrap">
+  <div class="grid-2">
+    <div>
+      <span class="sec-eye">Our Mission</span>
+      <h2 class="sec-h2">Movement Has Always Been<br>the Foundation.</h2>
+      <p class="sec-sub">We make it measurable, repeatable, and improvable — for every trainer, every client, and every clinical practitioner who refuses to guess when data is possible.</p>
+      <p style="color:var(--mid);font-size:15px;line-height:1.8;margin-top:18px">The fitness and rehabilitation industries have been operating on a foundational limitation: movement quality is assessed through the naked eye. Despite advances in wearable technology and data science, trainers and practitioners have had no practical tool for objective movement measurement at the session level — until now.</p>
+      <p style="color:var(--mid);font-size:15px;line-height:1.8;margin-top:14px">Keynetics Labs builds the bridge between gym floor coaching and clinical-grade movement intelligence — at a price that independent practitioners can actually afford.</p>
+    </div>
+    <div>
+      <div class="values-grid" style="grid-template-columns:1fr 1fr;gap:16px">
+        <div class="value-card" style="border-top-color:var(--teal2)"><h4>Precision</h4><p>Sensor-measured data replaces subjective observation in every session.</p></div>
+        <div class="value-card" style="border-top-color:var(--green)"><h4>Access</h4><p>Clinical-grade tools at fitness-friendly pricing. No lab required.</p></div>
+        <div class="value-card" style="border-top-color:var(--amber)"><h4>Transparency</h4><p>Every commission, every metric, every rate — fully disclosed from day one.</p></div>
+        <div class="value-card" style="border-top-color:var(--navy)"><h4>Scale</h4><p>A platform built to grow from a single trainer to an institutional network.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<div class="bg-off" id="team">
+<section class="wrap">
+  <div style="text-align:center;margin-bottom:48px">
+    <span class="sec-eye">The Founding Team</span>
+    <h2 class="sec-h2">Five Founders.<br>Every Critical Function Covered.</h2>
+    <p style="color:var(--mid);font-size:16px;max-width:520px;margin:12px auto 0">No critical role requires an immediate external hire. The founding team executes the full Year 1 plan.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar" style="background:rgba(0,163,196,0.12);color:var(--teal2)">IA</div>
+      <h3>Ian Abeyta</h3>
+      <div class="role">Chief Executive Officer</div>
+      <p>Movement science, data science & machine learning. Translates advanced analytics into real-world performance and rehabilitation environments. Sets the vision and leads investor and partner relationships.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:rgba(109,40,217,0.1);color:var(--purple)">MT</div>
+      <h3>Marcus D. Taylor, MBA</h3>
+      <div class="role" style="color:var(--purple)">Chief Operations Officer</div>
+      <p>AI strategy, instructional design, and operations across education, military, and community sectors. Retired U.S. Army Reserve Master Sergeant. Ph.D. Candidate, Learning Technologies. Leads training development and applied research.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:rgba(217,119,6,0.1);color:var(--amber)">SM</div>
+      <h3>Steve McDermott</h3>
+      <div class="role" style="color:var(--amber)">Chief Technology Officer</div>
+      <p>System architecture, hardware integration, and end-to-end technical execution. Responsible for the full technology stack from sensor hardware design to cloud infrastructure.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:rgba(13,122,78,0.1);color:var(--green)">CF</div>
+      <h3>Chris Frock</h3>
+      <div class="role" style="color:var(--green)">Machine Learning Specialist</div>
+      <p>Data models, performance analytics, and adaptive training logic. Builds the intelligence layer that transforms raw sensor data into the movement insights that differentiate Keynetics.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:rgba(192,57,43,0.1);color:var(--red)">EL</div>
+      <h3>Elvis Lara</h3>
+      <div class="role" style="color:var(--red)">Marketing</div>
+      <p>Brand positioning, outreach strategy, and go-to-market communication. Manages trainer acquisition campaigns and ensures Keynetics' value reaches the right audiences.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- COMPANY TIMELINE -->
+<section class="wrap">
+  <div class="grid-2">
+    <div>
+      <span class="sec-eye">Company Timeline</span>
+      <h2 class="sec-h2">Where We Are.<br>Where We Are Going.</h2>
+      <p class="sec-sub">Keynetics is at the working prototype stage and currently raising a $250,000 pre-seed round to fund the sprint from MVP to market.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot" style="background:var(--green);border-color:var(--green)"></div><span class="date">Now — Q1 2026</span><h4>Working MVP Deployed</h4><p>Real-time joint angle and balance/stability capture active. Cloud analytics processing operational. Pre-seed fundraising underway.</p></div>
+      <div class="tl-item"><div class="tl-dot" style="background:var(--teal2);border-color:var(--teal2)"></div><span class="date">Q2–Q3 2026</span><h4>Mobile Dashboard & Portal</h4><p>Trainer mobile dashboard and client progress portal launched. First 50 trainers enrolled. 10 documented case studies completed.</p></div>
+      <div class="tl-item"><div class="tl-dot" style="background:var(--amber);border-color:var(--amber)"></div><span class="date">2027</span><h4>Studio & Clinical Expansion</h4><p>Group licensing launched. 10 physical therapy clinical pilot partnerships activated. 200 enrolled trainers, break-even reached.</p></div>
+      <div class="tl-item"><div class="tl-dot" style="background:var(--muted);border-color:var(--border)"></div><span class="date">2028+</span><h4>Scale & AI Integration</h4><p>500+ trainers, 10,000+ subscribers. AI-driven coaching recommendations. Healthcare system licensing. NCAA and professional athletic organization partnerships.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION QUOTE -->
+<div class="vision-band">
+  <blockquote>"The platform Keynetics is building does not replace the trainer. It amplifies what great trainers already do and makes it <em>visible, verifiable, and scalable.</em> That is the mission. That is the market."</blockquote>
+  <p style="margin-top:24px;font-size:14px;color:rgba(255,255,255,0.4);position:relative">Keynetics Labs LLC — March 2026</p>
+</div>
+
+<!-- RAISE INFO -->
+<section class="wrap" style="text-align:center">
+  <span class="sec-eye">Investor Relations</span>
+  <h2 class="sec-h2" style="margin:0 auto">Pre-Seed Round Open</h2>
+  <p style="color:var(--mid);font-size:16px;max-width:520px;margin:14px auto 40px">Keynetics is seeking up to $250,000 in pre-seed capital to fund 12 months of operations — from working prototype to revenue-generating product with 50 enrolled trainers and documented client outcomes.</p>
+  <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap">
+    <div style="background:var(--off);border:1px solid var(--border);border-radius:var(--radius);padding:20px 32px;text-align:center;min-width:160px">
+      <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--navy)">$250K</div>
+      <div style="font-size:13px;color:var(--mid);margin-top:4px">Target Raise</div>
+    </div>
+    <div style="background:var(--off);border:1px solid var(--border);border-radius:var(--radius);padding:20px 32px;text-align:center;min-width:160px">
+      <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--teal)">12 mo</div>
+      <div style="font-size:13px;color:var(--mid);margin-top:4px">Deployment Timeline</div>
+    </div>
+    <div style="background:var(--off);border:1px solid var(--border);border-radius:var(--radius);padding:20px 32px;text-align:center;min-width:160px">
+      <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--green)">Yr 2</div>
+      <div style="font-size:13px;color:var(--mid);margin-top:4px">Break-Even Target</div>
+    </div>
+    <div style="background:var(--off);border:1px solid var(--border);border-radius:var(--radius);padding:20px 32px;text-align:center;min-width:160px">
+      <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--amber)">$1.2M</div>
+      <div style="font-size:13px;color:var(--mid);margin-top:4px">Year 3 Net Operating</div>
+    </div>
+  </div>
+  <p style="margin-top:28px;font-size:14px;color:var(--mid)">For investor inquiries, contact <a href="mailto:info@keyneticslabs.com" style="color:var(--teal);font-weight:600">info@keyneticslabs.com</a></p>
+</section>
+
+<div class="cta-band">
+  <h2>Join the Movement.</h2>
+  <p>Whether you are a trainer, a clinician, or an investor — there is a place for you in building the Keynetics platform.</p>
+  <a href="keynetics-pricing.html" class="btn-primary">Get Started →</a>
+</div>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="index.html" class="nav-logo"><div class="nav-logo-dot"></div>KEYNETICS<span>LABS</span></a>
+        <p>Precision movement intelligence for personal trainers, fitness professionals, and clinical practitioners.</p>
+      </div>
+      <div class="ft-col"><h4>Platform</h4><a href="platform.html">Overview</a><a href="trainers.html">For Trainers</a><a href="clinical.html">Clinical</a><a href="keynetics-pricing.html">Pricing</a></div>
+      <div class="ft-col"><h4>Company</h4><a href="about.html">About</a><a href="about.html#team">Team</a><a href="#">Investor Relations</a><a href="#">Contact</a></div>
+      <div class="ft-col"><h4>Support</h4><a href="mailto:info@keyneticslabs.com">info@keyneticslabs.com</a><a href="resources.html">FAQ</a><a href="#">Privacy Policy</a></div>
+    </div>
+    <div class="ft-bottom"><p>© 2026 Keynetics Labs LLC. All rights reserved.</p><div style="display:flex;gap:20px"><a href="#">Terms</a><a href="#">Privacy</a></div></div>
+  </div>
+</footer>
+</body>
+</html>

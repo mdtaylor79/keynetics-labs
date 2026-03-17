@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform — Keynetics Labs | Precision Movement Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A1628;--teal:#006B8A;--teal2:#00A3C4;--white:#FFFFFF;--off:#F4F7FA;--border:#D6E4EC;--dark:#1A2A3A;--mid:#4A6278;--muted:#7A8FA6;--green:#0D7A4E;--amber:#D97706;--purple:#6D28D9;--shadow:0 2px 16px rgba(10,22,40,0.08);--shadow-lg:0 8px 40px rgba(10,22,40,0.13);--radius:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--dark);background:var(--white);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--navy);text-decoration:none;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px}
+.nav-logo span{color:var(--teal2)}
+.nav-logo-dot{width:28px;height:28px;border-radius:7px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-logo-dot::after{content:'';width:10px;height:10px;border-radius:50%;background:var(--teal2)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{text-decoration:none;color:var(--mid);font-size:14px;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a.active{color:var(--navy);font-weight:700;border-bottom:2px solid var(--teal2);padding-bottom:2px}
+.nav-cta{background:var(--navy);color:var(--white)!important;padding:8px 20px;border-radius:8px;font-weight:600!important;transition:background 0.2s!important;border-bottom:none!important}
+.nav-cta:hover{background:var(--teal)!important}
+.hero{background:var(--navy);padding:96px 40px 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 110%,rgba(0,163,196,0.2) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--teal2);text-transform:uppercase;background:rgba(0,163,196,0.12);padding:5px 14px;border-radius:20px;margin-bottom:20px;border:1px solid rgba(0,163,196,0.25)}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(34px,5.5vw,58px);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.08;margin-bottom:20px}
+.hero h1 em{color:var(--teal2);font-style:normal}
+.hero p{color:rgba(255,255,255,0.6);font-size:18px;max-width:560px;margin:0 auto 40px}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--teal2);color:white;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:background 0.2s}
+.btn-primary:hover{background:var(--teal)}
+.btn-outline{background:transparent;color:white;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);transition:border-color 0.2s}
+.btn-outline:hover{border-color:var(--teal2)}
+section.wrap{padding:80px 40px;max-width:1100px;margin:0 auto}
+.sec-eye{font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--teal);text-transform:uppercase;display:block;margin-bottom:10px}
+.sec-h2{font-family:'Syne',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;color:var(--navy);letter-spacing:-0.02em;margin-bottom:14px}
+.sec-sub{color:var(--mid);font-size:16px;max-width:520px;line-height:1.7}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:border-color 0.2s,box-shadow 0.2s}
+.card:hover{border-color:var(--teal2);box-shadow:var(--shadow-lg)}
+.card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px}
+.card h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.card p{font-size:13.5px;color:var(--mid);line-height:1.7}
+.visual-block{background:var(--navy);border-radius:20px;padding:48px 40px;position:relative;overflow:hidden}
+.visual-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 80% 20%,rgba(0,163,196,0.18) 0%,transparent 60%)}
+.visual-block h2{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:white;margin-bottom:16px;position:relative}
+.visual-block p{color:rgba(255,255,255,0.6);font-size:15px;line-height:1.7;position:relative;max-width:400px}
+.metric-list{margin-top:28px;display:flex;flex-direction:column;gap:16px;position:relative}
+.metric-item{display:flex;align-items:center;gap:14px}
+.metric-dot{width:10px;height:10px;border-radius:50%;background:var(--teal2);flex-shrink:0}
+.metric-item span{font-size:14px;color:rgba(255,255,255,0.75)}
+.metric-item strong{color:white}
+.steps-list{counter-reset:steps;display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--border);counter-increment:steps}
+.step:last-child{border-bottom:none}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--navy);color:white;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step h4{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.step p{font-size:14px;color:var(--mid);line-height:1.7}
+.bg-off{background:var(--off);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat-row{display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px}
+.stat-item{text-align:center}
+.stat-item .num{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;color:var(--navy);letter-spacing:-0.03em;display:block}
+.stat-item .lbl{font-size:13px;color:var(--mid);margin-top:4px}
+.roadmap-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.roadmap-row::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;background:var(--border);z-index:0}
+.rm-item{text-align:center;position:relative;z-index:1;padding:0 8px}
+.rm-dot{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:11px;font-weight:700;letter-spacing:0.06em;color:white}
+.rm-item h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.rm-item p{font-size:12px;color:var(--mid);line-height:1.6}
+.cta-band{background:var(--teal);padding:72px 40px;text-align:center}
+.cta-band h2{font-family:'Syne',sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;color:white;margin-bottom:14px;letter-spacing:-0.02em}
+.cta-band p{color:rgba(255,255,255,0.75);font-size:16px;max-width:480px;margin:0 auto 32px}
+footer{background:var(--navy);padding:60px 40px 32px}
+.ft-inner{max-width:1100px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.ft-brand p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;max-width:240px;margin-top:12px}
+.ft-col h4{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px}
+.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:10px;transition:color 0.2s}
+.ft-col a:hover{color:var(--teal2)}
+.ft-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-bottom p,.ft-bottom a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none}
+.ft-bottom a:hover{color:var(--teal2)}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.hero{padding:64px 20px 52px}section.wrap{padding:60px 20px}.grid-2,.grid-3,.grid-4,.roadmap-row{grid-template-columns:1fr}.ft-top{grid-template-columns:1fr 1fr}.bg-off .wrap{padding:60px 20px}.cta-band{padding:52px 20px}footer{padding:48px 20px 24px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-logo-dot"></div>KEYNETICS<span>LABS</span></a>
+  <div class="nav-links">
+    <a href="platform.html" class="active">Platform</a>
+    <a href="trainers.html">For Trainers</a>
+    <a href="clinical.html">Clinical</a>
+    <a href="about.html">About</a>
+    <a href="resources.html">Resources</a>
+    <a href="keynetics-pricing.html">Pricing</a>
+    <a href="#" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">The Platform</div>
+  <h1>Movement Data.<br><em>Finally Measurable.</em></h1>
+  <p>Keynetics is an end-to-end movement intelligence system — sensor hardware, cloud analytics, trainer dashboard, and client portal — in a single platform.</p>
+  <div class="hero-btns">
+    <a href="keynetics-pricing.html" class="btn-primary">View Pricing →</a>
+    <a href="trainers.html" class="btn-outline">For Trainers</a>
+  </div>
+</div>
+
+<!-- WHAT IT IS -->
+<section class="wrap">
+  <div class="grid-2">
+    <div>
+      <span class="sec-eye">What Keynetics Measures</span>
+      <h2 class="sec-h2">Two Metrics.<br>Every Session.</h2>
+      <p class="sec-sub">The Keynetics sensor captures the two data streams that matter most for movement quality, injury prevention, and performance optimization — and does it in real time, on the gym floor.</p>
+      <div class="steps-list" style="margin-top:32px">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h4>Joint Angles & Range of Motion</h4>
+            <p>Quantifies how far and how accurately joints move through prescribed patterns. Every rep. Every session. Over time, the data reveals improvement that eyes alone cannot detect.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h4>Balance & Stability</h4>
+            <p>Measures postural control and weight distribution. Critical for injury prevention benchmarking, rehabilitation tracking, and athletic performance optimization.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="visual-block">
+      <h2>Real Data. Every Rep.</h2>
+      <p>The platform captures, processes, and visualizes movement data in real time — transforming a coaching session into a data-rich performance record.</p>
+      <div class="metric-list">
+        <div class="metric-item"><div class="metric-dot"></div><span><strong>Sub-session accuracy</strong> on joint angle capture</span></div>
+        <div class="metric-item"><div class="metric-dot"></div><span><strong>Real-time processing</strong> via cloud analytics</span></div>
+        <div class="metric-item"><div class="metric-dot"></div><span><strong>Session-over-session</strong> trend tracking</span></div>
+        <div class="metric-item"><div class="metric-dot"></div><span><strong>Client-visible</strong> progress portal</span></div>
+        <div class="metric-item"><div class="metric-dot"></div><span><strong>Exportable reports</strong> for clinical coordination</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 COMPONENTS -->
+<div class="bg-off">
+<section class="wrap">
+  <div style="text-align:center;margin-bottom:48px">
+    <span class="sec-eye">System Components</span>
+    <h2 class="sec-h2">One Platform. Four Layers.</h2>
+  </div>
+  <div class="grid-4">
+    <div class="card">
+      <div class="card-icon" style="background:rgba(0,107,138,0.1)">📡</div>
+      <h3>Sensor Hardware</h3>
+      <p>Captures joint angles and balance/stability in real time. Built for the gym floor, not a clinical lab. Manufacturing cost under $150.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(217,119,6,0.1)">📊</div>
+      <h3>Analytics Platform</h3>
+      <p>Cloud-based processing visualizes movement quality, identifies trends, and benchmarks performance against prior sessions.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(109,40,217,0.1)">📱</div>
+      <h3>Trainer Dashboard</h3>
+      <p>Mobile-first session management. Trainers see exactly what is happening in real time and track every client's progress over time.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(13,122,78,0.1)">✅</div>
+      <h3>Client Progress Portal</h3>
+      <p>Clients access their own data — visible, verifiable improvement that reinforces the value of every session and every subscription.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="wrap">
+  <div class="grid-2">
+    <div>
+      <span class="sec-eye">How It Works</span>
+      <h2 class="sec-h2">From Session to<br>Insight in Minutes.</h2>
+      <p class="sec-sub">The Keynetics workflow integrates directly into a trainer's existing session structure. No complex setup. No new protocols.</p>
+    </div>
+    <div class="steps-list">
+      <div class="step"><div class="step-num">1</div><div><h4>Sensor Placed</h4><p>The Keynetics device is positioned for the session. Calibration takes under 60 seconds.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div><h4>Session Begins</h4><p>The sensor captures movement data in real time throughout the assessment window.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><h4>Data Processed</h4><p>Cloud analytics process joint angles and balance metrics and generate the session report.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div><h4>Report Delivered</h4><p>Trainer and client both see the results. Progress is documented. Improvement is visible.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div style="background:var(--navy);padding:64px 40px">
+  <div class="stat-row" style="max-width:1100px;margin:0 auto">
+    <div class="stat-item"><span class="num" style="color:var(--teal2)">81%+</span><div class="lbl" style="color:rgba(255,255,255,0.5)">Hardware gross margin</div></div>
+    <div class="stat-item"><span class="num" style="color:var(--teal2)">$12/mo</span><div class="lbl" style="color:rgba(255,255,255,0.5)">Avg. platform retention per client</div></div>
+    <div class="stat-item"><span class="num" style="color:var(--teal2)">2</span><div class="lbl" style="color:rgba(255,255,255,0.5)">Core sensor metrics captured</div></div>
+    <div class="stat-item"><span class="num" style="color:var(--teal2)">4</span><div class="lbl" style="color:rgba(255,255,255,0.5)">Subscription tiers available</div></div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<section class="wrap">
+  <div style="text-align:center;margin-bottom:56px">
+    <span class="sec-eye">Technology Roadmap</span>
+    <h2 class="sec-h2">Modular by Design. Built to Extend.</h2>
+  </div>
+  <div class="roadmap-row">
+    <div class="rm-item">
+      <div class="rm-dot" style="background:var(--green)">NOW</div>
+      <h4>Working MVP</h4>
+      <p>Real-time joint angle capture, balance/stability measurement, cloud analytics processing</p>
+    </div>
+    <div class="rm-item">
+      <div class="rm-dot" style="background:var(--teal2)">NEAR</div>
+      <h4>In Development</h4>
+      <p>Mobile trainer dashboard, client-facing progress portal, structured MA reporting</p>
+    </div>
+    <div class="rm-item">
+      <div class="rm-dot" style="background:var(--amber)">MID</div>
+      <h4>Planned</h4>
+      <p>Team & studio dashboards, clinical outcome reporting, population benchmarking</p>
+    </div>
+    <div class="rm-item">
+      <div class="rm-dot" style="background:var(--muted)">LONG</div>
+      <h4>Roadmap</h4>
+      <p>AI coaching recommendations, wearable device integration, healthcare system licensing</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Ready to See It in Action?</h2>
+  <p>Keynetics is currently in working prototype stage and enrolling early adopter trainers and clinical partners.</p>
+  <a href="keynetics-pricing.html" class="btn-primary" style="background:white;color:var(--teal)">View Pricing & Get Started →</a>
+</div>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="index.html" class="nav-logo"><div class="nav-logo-dot"></div>KEYNETICS<span>LABS</span></a>
+        <p>Precision movement intelligence for personal trainers, fitness professionals, and clinical practitioners.</p>
+      </div>
+      <div class="ft-col"><h4>Platform</h4><a href="platform.html">Overview</a><a href="trainers.html">For Trainers</a><a href="clinical.html">Clinical</a><a href="keynetics-pricing.html">Pricing</a></div>
+      <div class="ft-col"><h4>Company</h4><a href="about.html">About</a><a href="about.html#team">Team</a><a href="#">Investor Relations</a><a href="#">Contact</a></div>
+      <div class="ft-col"><h4>Support</h4><a href="mailto:info@keyneticslabs.com">info@keyneticslabs.com</a><a href="resources.html">FAQ</a><a href="#">Privacy Policy</a></div>
+    </div>
+    <div class="ft-bottom"><p>© 2026 Keynetics Labs LLC. All rights reserved.</p><div style="display:flex;gap:20px"><a href="#">Terms</a><a href="#">Privacy</a></div></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources & FAQ — Keynetics Labs | Precision Movement Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A1628;--teal:#006B8A;--teal2:#00A3C4;--white:#FFFFFF;--off:#F4F7FA;--border:#D6E4EC;--dark:#1A2A3A;--mid:#4A6278;--muted:#7A8FA6;--green:#0D7A4E;--amber:#D97706;--shadow:0 2px 16px rgba(10,22,40,0.08);--shadow-lg:0 8px 40px rgba(10,22,40,0.13);--radius:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--dark);background:var(--white);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--navy);text-decoration:none;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px}
+.nav-logo span{color:var(--teal2)}
+.nav-logo-dot{width:28px;height:28px;border-radius:7px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-logo-dot::after{content:'';width:10px;height:10px;border-radius:50%;background:var(--teal2)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{text-decoration:none;color:var(--mid);font-size:14px;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a.active{color:var(--navy);font-weight:700;border-bottom:2px solid var(--teal2);padding-bottom:2px}
+.nav-cta{background:var(--navy);color:var(--white)!important;padding:8px 20px;border-radius:8px;font-weight:600!important;transition:background 0.2s!important;border-bottom:none!important}
+.nav-cta:hover{background:var(--teal)!important}
+.hero-wrap{background:var(--navy);position:relative;overflow:hidden}
+.hero-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 120%,rgba(0,163,196,0.2) 0%,transparent 65%)}
+.hero-inner{max-width:1100px;margin:0 auto;padding:80px 40px 72px;text-align:center;position:relative}
+.hero-inner .hero-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--teal2);text-transform:uppercase;background:rgba(0,163,196,0.12);padding:5px 14px;border-radius:20px;margin-bottom:20px;border:1px solid rgba(0,163,196,0.25)}
+.hero-inner h1{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+.hero-inner p{color:rgba(255,255,255,0.6);font-size:17px;max-width:520px;margin:0 auto}
+.main-wrap{max-width:1100px;margin:0 auto;padding:72px 40px;display:grid;grid-template-columns:240px 1fr;gap:60px;align-items:start}
+.sidebar{position:sticky;top:84px}
+.sidebar h3{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.sidebar-links{display:flex;flex-direction:column;gap:2px}
+.sidebar-link{padding:8px 12px;border-radius:8px;font-size:14px;color:var(--mid);cursor:pointer;transition:all 0.2s;border:none;background:none;text-align:left;font-family:inherit;font-weight:500}
+.sidebar-link:hover{background:var(--off);color:var(--navy)}
+.sidebar-link.active{background:var(--off);color:var(--navy);font-weight:700;border-left:3px solid var(--teal2)}
+.faq-section{display:none}
+.faq-section.active{display:block}
+.faq-section h2{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;color:var(--navy);margin-bottom:28px}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-item:first-of-type{border-top:1px solid var(--border)}
+.faq-trigger{width:100%;padding:18px 0;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;text-align:left;gap:16px;font-family:inherit}
+.faq-trigger span{font-size:15px;font-weight:600;color:var(--navy)}
+.faq-icon{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;color:var(--mid)}
+.faq-item.open .faq-icon{background:var(--teal);border-color:var(--teal);color:white;transform:rotate(45deg)}
+.faq-body{max-height:0;overflow:hidden;transition:max-height 0.35s ease}
+.faq-body-inner{font-size:14px;color:var(--mid);line-height:1.8;padding-bottom:20px}
+.faq-body-inner a{color:var(--teal);text-decoration:none;font-weight:500}
+.faq-body-inner a:hover{text-decoration:underline}
+.faq-item.open .faq-body{max-height:600px}
+.resource-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px}
+.res-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color 0.2s,box-shadow 0.2s;text-decoration:none;display:block}
+.res-card:hover{border-color:var(--teal2);box-shadow:var(--shadow-lg)}
+.res-card-eye{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;display:block}
+.res-card h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.res-card p{font-size:13px;color:var(--mid);line-height:1.6}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.contact-card{background:var(--off);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.contact-card h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.contact-card p{font-size:13px;color:var(--mid);margin-bottom:12px}
+.contact-card a{color:var(--teal);font-weight:600;text-decoration:none;font-size:14px}
+.contact-card a:hover{text-decoration:underline}
+footer{background:var(--navy);padding:60px 40px 32px;border-top:1px solid rgba(255,255,255,0.06)}
+.ft-inner{max-width:1100px;margin:0 auto}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.ft-brand p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;max-width:240px;margin-top:12px}
+.ft-col h4{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px}
+.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:10px;transition:color 0.2s}
+.ft-col a:hover{color:var(--teal2)}
+.ft-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-bottom p,.ft-bottom a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none}
+.ft-bottom a:hover{color:var(--teal2)}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.hero-inner{padding:60px 20px 52px}.main-wrap{grid-template-columns:1fr;gap:32px;padding:48px 20px}.sidebar{position:static}.sidebar-links{flex-direction:row;flex-wrap:wrap}.resource-cards,.contact-grid{grid-template-columns:1fr}.ft-top{grid-template-columns:1fr 1fr}footer{padding:48px 20px 24px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><div class="nav-logo-dot"></div>KEYNETICS<span>LABS</span></a>
+  <div class="nav-links">
+    <a href="platform.html">Platform</a>
+    <a href="trainers.html">For Trainers</a>
+    <a href="clinical.html">Clinical</a>
+    <a href="about.html">About</a>
+    <a href="resources.html" class="active">Resources</a>
+    <a href="keynetics-pricing.html">Pricing</a>
+    <a href="#" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<div class="hero-wrap">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Resources & FAQ</div>
+    <h1>Everything You Need<br>to Know About Keynetics.</h1>
+    <p>Answers to common questions about the platform, device, subscriptions, commissions, and clinical applications.</p>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h3>Topics</h3>
+    <div class="sidebar-links">
+      <button class="sidebar-link active" onclick="showSection('overview')">Overview</button>
+      <button class="sidebar-link" onclick="showSection('device')">The Device</button>
+      <button class="sidebar-link" onclick="showSection('subscriptions')">Subscriptions</button>
+      <button class="sidebar-link" onclick="showSection('commission')">Commission</button>
+      <button class="sidebar-link" onclick="showSection('clinical')">Clinical</button>
+      <button class="sidebar-link" onclick="showSection('contact')">Contact & Support</button>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main>
+
+    <!-- OVERVIEW -->
+    <div class="faq-section active" id="section-overview">
+      <h2>Platform Overview</h2>
+
+      <div class="resource-cards">
+        <a href="platform.html" class="res-card"><span class="res-card-eye">Start Here</span><h3>Platform Overview</h3><p>How the Keynetics system works from sensor to client portal.</p></a>
+        <a href="trainers.html" class="res-card"><span class="res-card-eye">Trainers</span><h3>For Personal Trainers</h3><p>How Keynetics fits into your existing practice and income structure.</p></a>
+        <a href="clinical.html" class="res-card"><span class="res-card-eye">Clinical</span><h3>Clinical Applications</h3><p>How physical therapists and sports medicine professionals use the Elite plan.</p></a>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>What is Keynetics Labs?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Keynetics Labs is a performance technology company that delivers sensor-based movement intelligence for personal trainers, fitness professionals, and clinical practitioners. The platform transforms coaching from subjective observation into objective, data-driven performance management through a B2B2C model: trainers acquire the Keynetics device, deploy it with clients, and clients subscribe to structured Movement Assessment (MA) plans.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>What stage is the product at?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Keynetics is at the working prototype/MVP stage as of March 2026. Real-time joint angle capture and balance/stability measurement are deployed. Cloud analytics processing is operational. The mobile trainer dashboard and client progress portal are in active development and targeted for release during the current funding cycle.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>What does the platform measure?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Two core data streams: (1) Joint Angles and Range of Motion — quantifies how far and how accurately joints move through prescribed movement patterns across training sessions. (2) Balance and Stability — measures postural control and weight distribution, critical for injury prevention, rehabilitation benchmarking, and athletic performance optimization.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>Who is Keynetics built for?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Primary: independent personal trainers and small-to-mid-size fitness studios. Secondary: physical therapy clinics, athletic performance centers, collegiate athletic programs, and youth sports development organizations. The hybrid platform serves performance and clinical populations through the same device and software stack.</div></div>
+      </div>
+    </div>
+
+    <!-- DEVICE -->
+    <div class="faq-section" id="section-device">
+      <h2>The Device</h2>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>What are my device acquisition options?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Two paths: (1) Upfront Purchase — $800 one-time, full ownership from day one, full commission from day one. (2) Performance-Based Ownership — $0 upfront, $1,000 total cost paid through a 10% contribution from your earned subscription commissions until the device is paid off, at which point full commission applies. Both paths provide identical access to the platform and all subscription tiers.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>How much does the device cost to manufacture?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Manufacturing cost is under $150 per unit at current scale, producing a gross hardware margin of 81%+ on the $800 upfront purchase price. This margin provides strong unit economics from the first device sold and funds the manufacturing cost with significant headroom for operational investment.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>Does the device require special setup or calibration?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">The Keynetics sensor is designed for gym-floor deployment — not a clinical lab. Calibration is completed in under 60 seconds at the start of each session. The device connects to the trainer dashboard via the mobile app. Full onboarding support is provided with every device purchase.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>Can one device serve both performance and clinical clients?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Yes. The Keynetics platform is built to serve both populations through a single device. Performance clients are enrolled on Advanced or Elite plans. Clinical clients use the Elite plan's outcome documentation and care coordination export features. No additional device or software license is required to serve both client types.</div></div>
+      </div>
+    </div>
+
+    <!-- SUBSCRIPTIONS -->
+    <div class="faq-section" id="section-subscriptions">
+      <h2>Subscriptions</h2>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>What is a Movement Assessment (MA)?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">A Movement Assessment is a structured sensor-based evaluation session capturing joint angle and balance/stability data for your client. The data is processed through Keynetics' cloud analytics and generates a session report visible to both trainer and client through the progress portal. MAs are the core subscription unit — subscription tiers are defined by how many MAs are included per month.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>What are the four subscription tiers?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Minimal ($15/mo) — 2 MAs, maintenance clients. Moderate ($24/mo) — 4 MAs, general fitness clients. Advanced ($32/mo) — 8 MAs, athletes and active rehab. Elite ($50/mo) — unlimited MAs, high-frequency performers and clinical populations. All tiers include joint angle tracking, balance/stability metrics, and the client progress portal. Higher tiers add session trends, benchmarking, and clinical documentation features. See the <a href="keynetics-pricing.html">Pricing page</a> for a full comparison.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>How do clients subscribe?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Clients subscribe through you — the trainer. You select the appropriate MA tier for each client and enroll them through your Keynetics trainer dashboard. Keynetics handles billing and delivers the client portal automatically. Clients never transact directly with Keynetics.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>Can clients upgrade or downgrade their tier?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Yes. Tier changes are managed through the trainer dashboard and take effect at the start of the next billing cycle. Upgrading clients to Advanced or Elite increases both their MA frequency and your commission rate — creating a direct incentive to demonstrate progress and recommend plan upgrades.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>Are there bulk or group subscription options?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Group licensing is available for gyms, boutique studios, and physical therapy clinics managing large client rosters or multiple practitioners. Contact <a href="mailto:info@keyneticslabs.com">info@keyneticslabs.com</a> for custom pricing and configuration.</div></div>
+      </div>
+    </div>
+
+    <!-- COMMISSION -->
+    <div class="faq-section" id="section-commission">
+      <h2>Commission</h2>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>How does the commission structure work?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">The commission structure is inverse — trainers earn a higher percentage at higher subscription tiers. Minimal: 40% ($6/mo per client). Moderate: 50% ($12/mo). Advanced: 60% ($19.20/mo). Elite: 70% ($35/mo). Keynetics retains $9–$15 per client per month at every tier. This structure aligns every incentive: trainers are financially motivated to demonstrate enough progress that clients upgrade their plans.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>When and how are commissions paid?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Commissions are calculated monthly and paid on a rolling 30-day basis. Trainers on the Performance-Based device path have a 10% contribution automatically deducted until device payoff, after which the full commission rate applies. All commission details are visible in real time in the trainer dashboard.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>What is the income potential with a full client roster?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">A trainer with 20 clients on the Moderate tier earns $240/month ($2,880/year) in passive subscription commission. The same 20 clients on Advanced earns $384/month ($4,608/year). At 30 clients on Advanced, commission reaches $576/month ($6,912/year). These figures are in addition to whatever session fees trainers charge directly to clients — Keynetics commissions are entirely passive income on top of existing revenue.</div></div>
+      </div>
+    </div>
+
+    <!-- CLINICAL -->
+    <div class="faq-section" id="section-clinical">
+      <h2>Clinical Applications</h2>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>Is Keynetics suitable for physical therapists?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Yes. The Elite tier includes clinical outcome documentation and exportable progress reports designed for care coordination. Keynetics is positioned as a functional outcome measurement tool — not a diagnostic system — making it compatible with PT documentation workflows without triggering clinical regulatory requirements. A clinical advisory program is in development prior to full PT market launch.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>How does Keynetics compare to lab-grade motion capture systems?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Lab-grade systems like Noraxon or Kinesio are priced at $10,000–$30,000 and require controlled clinical research environments. Keynetics is priced at $800 (or $0 upfront via Performance-Based) and deploys on the gym floor or in a PT clinic without specialized infrastructure. The trade-off is precision — Keynetics measures joint angles and balance at session level, not the multi-marker, multi-axis biomechanical analysis of a research lab. For the vast majority of trainer and clinical practitioner use cases, session-level movement data is exactly what is needed.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger" onclick="toggleFaq(this)"><span>How do I apply for the clinical pilot program?</span><div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div></button>
+        <div class="faq-body"><div class="faq-body-inner">Keynetics is actively seeking physical therapy practices and sports medicine clinics for the clinical pilot program. Pilot partners receive dedicated onboarding support and direct access to the clinical advisory team. Contact us at <a href="mailto:info@keyneticslabs.com">info@keyneticslabs.com</a> with your practice name, specialty, and a brief description of your interest.</div></div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="faq-section" id="section-contact">
+      <h2>Contact & Support</h2>
+      <div class="contact-grid">
+        <div class="contact-card"><h4>General Inquiries</h4><p>Questions about the platform, subscriptions, or getting started.</p><a href="mailto:info@keyneticslabs.com">info@keyneticslabs.com</a></div>
+        <div class="contact-card"><h4>Sales & Partnerships</h4><p>Bulk licensing, studio partnerships, clinical pilot applications, investor relations.</p><a href="mailto:info@keyneticslabs.com">info@keyneticslabs.com</a></div>
+        <div class="contact-card"><h4>Clinical Pilots</h4><p>Apply for the clinical advisory and pilot program for PT and sports medicine practices.</p><a href="mailto:info@keyneticslabs.com">Request Clinical Pilot →</a></div>
+        <div class="contact-card"><h4>Investor Relations</h4><p>Pre-seed round inquiries and investor deck requests.</p><a href="mailto:info@keyneticslabs.com">investor@keyneticslabs.com</a></div>
+      </div>
+      <div style="margin-top:32px;background:var(--off);border:1px solid var(--border);border-radius:var(--radius);padding:24px">
+        <p style="font-size:14px;color:var(--mid);line-height:1.7">Keynetics Labs LLC is headquartered in the United States. We are currently in the working prototype/MVP stage and actively enrolling early adopter trainers and clinical pilot partners. For the most current product status and updates, follow us or reach out directly.</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="index.html" class="nav-logo"><div class="nav-logo-dot"></div>KEYNETICS<span>LABS</span></a>
+        <p>Precision movement intelligence for personal trainers, fitness professionals, and clinical practitioners.</p>
+      </div>
+      <div class="ft-col"><h4>Platform</h4><a href="platform.html">Overview</a><a href="trainers.html">For Trainers</a><a href="clinical.html">Clinical</a><a href="keynetics-pricing.html">Pricing</a></div>
+      <div class="ft-col"><h4>Company</h4><a href="about.html">About</a><a href="about.html#team">Team</a><a href="#">Investor Relations</a><a href="#">Contact</a></div>
+      <div class="ft-col"><h4>Support</h4><a href="mailto:info@keyneticslabs.com">info@keyneticslabs.com</a><a href="resources.html">FAQ</a><a href="#">Privacy Policy</a></div>
+    </div>
+    <div class="ft-bottom"><p>© 2026 Keynetics Labs LLC. All rights reserved.</p><div style="display:flex;gap:20px"><a href="#">Terms</a><a href="#">Privacy</a></div></div>
+  </div>
+</footer>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.faq-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+  document.getElementById('section-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  item.closest('.faq-section').querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

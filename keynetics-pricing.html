@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Keynetics Labs | Precision Movement Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:   #0A1628;
+  --teal:   #006B8A;
+  --teal2:  #00A3C4;
+  --teal3:  #E0F4FA;
+  --white:  #FFFFFF;
+  --off:    #F4F7FA;
+  --border: #D6E4EC;
+  --dark:   #1A2A3A;
+  --mid:    #4A6278;
+  --muted:  #7A8FA6;
+  --green:  #0D7A4E;
+  --amber:  #D97706;
+  --red:    #C0392B;
+  --shadow: 0 2px 16px rgba(10,22,40,0.08);
+  --shadow-lg: 0 8px 40px rgba(10,22,40,0.13);
+  --radius: 14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ─────────────────────────────────────────────────────────────────── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 18px;
+  color: var(--navy); text-decoration: none;
+  letter-spacing: -0.02em;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo span { color: var(--teal2); }
+.nav-logo-dot {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.nav-logo-dot::after {
+  content: '';
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--teal2);
+}
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a {
+  text-decoration: none; color: var(--mid);
+  font-size: 14px; font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-links a.active { color: var(--navy); font-weight: 600; }
+.nav-cta {
+  background: var(--navy); color: var(--white) !important;
+  padding: 8px 20px; border-radius: 8px;
+  font-weight: 600 !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--teal) !important; }
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+.hero {
+  background: var(--navy);
+  padding: 80px 40px 70px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(0,163,196,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--teal2); text-transform: uppercase;
+  background: rgba(0,163,196,0.12);
+  padding: 5px 14px; border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0,163,196,0.25);
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800; color: var(--white);
+  letter-spacing: -0.03em; line-height: 1.1;
+  margin-bottom: 18px;
+}
+.hero h1 em { color: var(--teal2); font-style: normal; }
+.hero p {
+  color: rgba(255,255,255,0.62);
+  font-size: 17px; max-width: 540px;
+  margin: 0 auto 36px;
+}
+.trust-strip {
+  display: flex; align-items: center; justify-content: center;
+  gap: 32px; flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: rgba(255,255,255,0.55);
+}
+.trust-item svg { color: var(--teal2); }
+.trust-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+
+/* ── SECTION ─────────────────────────────────────────────────────────────── */
+.section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  color: var(--teal); text-transform: uppercase;
+  display: block; margin-bottom: 10px;
+}
+.section-header h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700; color: var(--navy);
+  letter-spacing: -0.02em;
+}
+.section-header p {
+  color: var(--mid); font-size: 16px;
+  max-width: 520px; margin: 12px auto 0;
+}
+
+/* ── TIER TABS ───────────────────────────────────────────────────────────── */
+.tier-tabs {
+  display: flex; justify-content: center;
+  gap: 4px; margin-bottom: 40px;
+  background: var(--off); border-radius: 12px;
+  padding: 5px; width: fit-content; margin: 0 auto 40px;
+  border: 1px solid var(--border);
+}
+.tier-tab {
+  padding: 9px 22px; border-radius: 9px;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer; border: none; background: transparent;
+  color: var(--mid); transition: all 0.2s;
+  white-space: nowrap;
+}
+.tier-tab.active {
+  background: var(--white); color: var(--navy);
+  box-shadow: 0 1px 6px rgba(10,22,40,0.1);
+}
+.tier-tab:hover:not(.active) { color: var(--navy); }
+
+/* ── BILLING TOGGLE ──────────────────────────────────────────────────────── */
+.billing-toggle {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; margin-bottom: 48px;
+}
+.billing-toggle label { font-size: 14px; font-weight: 600; color: var(--mid); cursor: pointer; }
+.billing-toggle label.active { color: var(--navy); }
+.toggle-track {
+  width: 48px; height: 26px; border-radius: 13px;
+  background: var(--teal); cursor: pointer;
+  position: relative; transition: background 0.2s;
+  border: none; outline: none;
+  flex-shrink: 0;
+}
+.toggle-track::after {
+  content: ''; position: absolute;
+  top: 3px; left: 3px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: white;
+  transition: transform 0.2s;
+}
+.toggle-track.monthly::after { transform: translateX(0); }
+.toggle-track.yearly::after { transform: translateX(22px); }
+.save-badge {
+  background: var(--green); color: white;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+  padding: 3px 9px; border-radius: 20px;
+}
+
+/* ── PRICING GRID ────────────────────────────────────────────────────────── */
+.tier-panel { display: none; }
+.tier-panel.active { display: block; }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px; align-items: start;
+}
+
+.price-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.price-card:hover {
+  border-color: var(--teal2);
+  box-shadow: var(--shadow-lg);
+}
+.price-card.featured {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-lg);
+}
+.featured-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--teal); color: white;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  padding: 4px 14px; border-radius: 20px;
+  white-space: nowrap;
+}
+.card-tier-name {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--teal);
+  margin-bottom: 6px;
+}
+.card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px; font-weight: 700; color: var(--navy);
+  margin-bottom: 4px;
+}
+.card-tagline {
+  font-size: 13px; color: var(--mid); margin-bottom: 24px;
+}
+
+.price-row { margin-bottom: 6px; }
+.price-main {
+  font-family: 'Syne', sans-serif;
+  font-size: 38px; font-weight: 800; color: var(--navy);
+  letter-spacing: -0.03em; line-height: 1;
+}
+.price-main sup { font-size: 20px; vertical-align: top; margin-top: 6px; }
+.price-period { font-size: 13px; color: var(--muted); margin-left: 2px; }
+.price-annual { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.price-was { font-size: 12px; color: var(--muted); text-decoration: line-through; }
+.price-save { font-size: 12px; color: var(--green); font-weight: 600; }
+
+.card-divider {
+  height: 1px; background: var(--border);
+  margin: 20px 0;
+}
+
+.feature-list { list-style: none; margin-bottom: 28px; flex: 1; }
+.feature-list li {
+  display: flex; gap: 10px;
+  font-size: 13.5px; color: var(--dark);
+  padding: 5px 0;
+  align-items: flex-start;
+}
+.feature-list li .check {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: rgba(0,163,196,0.12);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.feature-list li .check svg { width: 10px; height: 10px; color: var(--teal); }
+.feature-list li .check.green { background: rgba(13,122,78,0.1); }
+.feature-list li .check.green svg { color: var(--green); }
+
+.feature-section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted);
+  margin: 16px 0 8px; display: block;
+}
+
+.cta-btn {
+  display: block; width: 100%; padding: 13px;
+  border-radius: 10px; font-size: 14px; font-weight: 700;
+  text-align: center; text-decoration: none;
+  cursor: pointer; border: none; transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+.cta-primary {
+  background: var(--navy); color: white;
+}
+.cta-primary:hover { background: var(--teal); }
+.cta-outline {
+  background: transparent; color: var(--navy);
+  border: 1.5px solid var(--border);
+}
+.cta-outline:hover { border-color: var(--teal); color: var(--teal); }
+.cta-featured {
+  background: var(--teal); color: white;
+}
+.cta-featured:hover { background: var(--navy); }
+
+.card-footnote {
+  font-size: 11px; color: var(--muted);
+  text-align: center; margin-top: 10px;
+}
+
+/* ── ENTERPRISE BANNER ───────────────────────────────────────────────────── */
+.enterprise-banner {
+  background: var(--off); border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 36px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  margin-top: 32px;
+}
+.enterprise-banner h3 {
+  font-family: 'Syne', sans-serif; font-size: 18px;
+  font-weight: 700; color: var(--navy); margin-bottom: 4px;
+}
+.enterprise-banner p { font-size: 14px; color: var(--mid); }
+.enterprise-banner a {
+  background: var(--navy); color: white;
+  padding: 12px 28px; border-radius: 10px;
+  font-size: 14px; font-weight: 700; text-decoration: none;
+  white-space: nowrap; transition: background 0.2s;
+  flex-shrink: 0;
+}
+.enterprise-banner a:hover { background: var(--teal); }
+
+/* ── COMPARISON TABLE ────────────────────────────────────────────────────── */
+.compare-section {
+  background: var(--off);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 80px 40px;
+}
+.compare-section > .section { padding: 0; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 32px; }
+.compare-table th {
+  padding: 14px 16px; text-align: center;
+  font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700;
+  color: var(--white); background: var(--navy);
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.compare-table th:first-child { text-align: left; border-radius: 10px 0 0 0; }
+.compare-table th:last-child { border-radius: 0 10px 0 0; border-right: none; }
+.compare-table th.featured-col { background: var(--teal); }
+
+.compare-table td {
+  padding: 13px 16px; text-align: center;
+  font-size: 13.5px; color: var(--dark);
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+.compare-table td:first-child { text-align: left; font-weight: 500; color: var(--mid); border-left: 1px solid var(--border); }
+.compare-table td:last-child { border-right: 1px solid var(--border); }
+.compare-table td.featured-col { background: rgba(0,107,138,0.04); }
+.compare-table tr:last-child td { border-bottom: 1px solid var(--border); }
+.compare-table tr:last-child td:first-child { border-radius: 0 0 0 10px; }
+.compare-table tr:last-child td:last-child { border-radius: 0 0 10px 0; }
+.compare-table tr:nth-child(even) td { background: var(--white); }
+.compare-table tr:nth-child(even) td.featured-col { background: rgba(0,107,138,0.06); }
+
+.check-yes { color: var(--green); font-size: 16px; }
+.check-no { color: var(--border); font-size: 16px; }
+.check-partial { color: var(--amber); font-size: 13px; font-weight: 600; }
+
+/* ── SECTION DIVIDER ─────────────────────────────────────────────────────── */
+.section-divider {
+  height: 1px; background: var(--border);
+  max-width: 1100px; margin: 0 auto;
+}
+
+/* ── STATS STRIP ─────────────────────────────────────────────────────────── */
+.stats-strip {
+  background: var(--navy);
+  padding: 48px 40px;
+}
+.stats-strip-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: space-around;
+  gap: 20px; flex-wrap: wrap;
+}
+.stat-block { text-align: center; }
+.stat-block .num {
+  font-family: 'Syne', sans-serif;
+  font-size: 38px; font-weight: 800; color: var(--teal2);
+  letter-spacing: -0.03em; display: block;
+}
+.stat-block .label { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+/* ── FAQ ─────────────────────────────────────────────────────────────────── */
+.faq-section { padding: 80px 40px; max-width: 760px; margin: 0 auto; }
+.faq-section .section-header { text-align: center; margin-bottom: 40px; }
+
+.faq-tabs {
+  display: flex; justify-content: center; gap: 4px;
+  margin-bottom: 32px;
+  background: var(--off); border-radius: 10px; padding: 4px;
+  border: 1px solid var(--border); width: fit-content; margin: 0 auto 32px;
+}
+.faq-tab {
+  padding: 8px 20px; border-radius: 8px;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  border: none; background: transparent; color: var(--mid);
+  transition: all 0.2s;
+}
+.faq-tab.active { background: white; color: var(--navy); box-shadow: 0 1px 5px rgba(0,0,0,0.08); }
+
+.faq-group { display: none; }
+.faq-group.active { display: block; }
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+
+.faq-trigger {
+  width: 100%; padding: 18px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  background: none; border: none; cursor: pointer;
+  text-align: left; gap: 16px;
+}
+.faq-trigger span {
+  font-size: 15px; font-weight: 600; color: var(--navy);
+}
+.faq-icon {
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all 0.2s;
+  color: var(--mid);
+}
+.faq-item.open .faq-icon {
+  background: var(--teal); border-color: var(--teal); color: white; transform: rotate(45deg);
+}
+.faq-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0;
+}
+.faq-body-inner {
+  font-size: 14px; color: var(--mid); line-height: 1.7;
+  padding-bottom: 18px;
+}
+.faq-item.open .faq-body { max-height: 400px; }
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────── */
+footer {
+  background: var(--navy);
+  padding: 60px 40px 32px;
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px; padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand .nav-logo { margin-bottom: 14px; display: inline-flex; }
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 240px; }
+.footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--teal2); }
+.footer-bottom {
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-bottom a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; }
+.footer-bottom a:hover { color: var(--teal2); }
+
+/* ── UTIL ────────────────────────────────────────────────────────────────── */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 60px 20px 50px; }
+  .section { padding: 60px 20px; }
+  .compare-section { padding: 60px 20px; }
+  .faq-section { padding: 60px 20px; }
+  .stats-strip { padding: 40px 20px; }
+  footer { padding: 48px 20px 24px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .enterprise-banner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-dot"></div>
+    KEYNETICS<span>LABS</span>
+  </a>
+  <div class="nav-links">
+    <a href="platform.html">Platform</a>
+    <a href="trainers.html">For Trainers</a>
+    <a href="clinical.html">Clinical</a>
+    <a href="about.html">About</a>
+    <a href="resources.html">Resources</a>
+    <a href="keynetics-pricing.html" class="active">Pricing</a>
+    <a href="#" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Pricing</div>
+  <h1>Precision Movement.<br><em>Priced to Perform.</em></h1>
+  <p>Sensor-based movement intelligence for personal trainers, fitness studios, and clinical practitioners. Choose the plan built for your practice.</p>
+  <div class="trust-strip">
+    <div class="trust-item">
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.62l5.34-.78z"/></svg>
+      Working MVP Deployed
+    </div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+      No Upfront Cost Option
+    </div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+      Cancel Anytime
+    </div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2z"/></svg>
+      Hybrid Performance + Clinical
+    </div>
+  </div>
+</section>
+
+<!-- ══ DEVICE SECTION ══════════════════════════════════════════════════════ -->
+<div style="background: var(--white); padding: 80px 40px 0;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-header">
+      <span class="section-eyebrow">Hardware</span>
+      <h2>Get the Keynetics Device</h2>
+      <p>Two paths to device ownership. Both give you full access to the platform and client portal.</p>
+    </div>
+
+    <div class="pricing-grid" style="max-width: 680px; margin: 0 auto 32px; grid-template-columns: 1fr 1fr;">
+
+      <!-- Upfront -->
+      <div class="price-card">
+        <div class="card-tier-name">Upfront Purchase</div>
+        <div class="card-title">Own It Now</div>
+        <div class="card-tagline">Best for established practices</div>
+        <div class="price-row">
+          <span class="price-main"><sup>$</sup>800</span>
+        </div>
+        <div class="price-annual">One-time payment</div>
+        <div class="card-divider"></div>
+        <ul class="feature-list">
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Full device ownership from day one</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Full trainer commission immediately</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Manufacturing cost &lt;$150 — 81%+ margin</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Access all subscription tiers</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Full platform + client portal</li>
+        </ul>
+        <a href="#" class="cta-btn cta-primary">Purchase Device →</a>
+        <p class="card-footnote">Ships within 5–7 business days</p>
+      </div>
+
+      <!-- Performance-based -->
+      <div class="price-card featured">
+        <div class="featured-badge">MOST POPULAR</div>
+        <div class="card-tier-name">Performance-Based</div>
+        <div class="card-title">No Upfront Cost</div>
+        <div class="card-tagline">Best for new or growing practices</div>
+        <div class="price-row">
+          <span class="price-main"><sup>$</sup>0</span>
+        </div>
+        <div class="price-annual">$1,000 total via 10% subscription share</div>
+        <div class="card-divider"></div>
+        <ul class="feature-list">
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>No upfront payment required</li>
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>10% of subscription contribution until paid off</li>
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Full commission unlocks at payoff</li>
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Access all subscription tiers</li>
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Full platform + client portal</li>
+        </ul>
+        <a href="#" class="cta-btn cta-featured">Get Started Free →</a>
+        <p class="card-footnote">Self-funding through your practice</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SUBSCRIPTION SECTION ═══════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-eyebrow">Client Subscriptions</span>
+    <h2>Movement Assessment Plans</h2>
+    <p>Your clients subscribe to structured MA plans through you. You set the tier. Keynetics handles the billing.</p>
+  </div>
+
+  <!-- Billing Toggle -->
+  <div class="billing-toggle">
+    <label id="label-monthly" class="active" onclick="setBilling('monthly')">Monthly</label>
+    <button class="toggle-track yearly" id="billing-toggle" onclick="toggleBilling()" aria-label="Toggle billing period"></button>
+    <label id="label-yearly" onclick="setBilling('yearly')">Yearly <span class="save-badge">SAVE 20%</span></label>
+  </div>
+
+  <!-- Tier Tabs -->
+  <div class="tier-tabs" id="tierTabs">
+    <button class="tier-tab active" onclick="setTier('all')">All Plans</button>
+    <button class="tier-tab" onclick="setTier('minimal')">Minimal</button>
+    <button class="tier-tab" onclick="setTier('moderate')">Moderate</button>
+    <button class="tier-tab" onclick="setTier('advanced')">Advanced</button>
+    <button class="tier-tab" onclick="setTier('elite')">Elite</button>
+  </div>
+
+  <!-- ALL PLANS -->
+  <div class="tier-panel active" id="panel-all">
+    <div class="pricing-grid">
+
+      <!-- Minimal -->
+      <div class="price-card" id="card-minimal">
+        <div class="card-tier-name">Minimal</div>
+        <div class="card-title">Maintenance Track</div>
+        <div class="card-tagline">Clients staying sharp between programs</div>
+        <div class="price-row">
+          <span class="price-main" id="minimal-price"><sup>$</sup>15</span><span class="price-period">/mo</span>
+        </div>
+        <div class="price-annual" id="minimal-annual" style="display:none">$144/yr · billed annually</div>
+        <div class="price-was" id="minimal-was" style="display:none">Was $180/yr</div>
+        <div style="height:6px;"></div>
+        <div style="font-size:12px; color:var(--green); font-weight:600; margin-bottom:4px;">Trainer earns: <strong>$6.00/mo (40%)</strong></div>
+        <div style="font-size:12px; color:var(--muted); margin-bottom:16px;">Keynetics retains: $9.00/mo</div>
+        <div class="card-divider"></div>
+        <ul class="feature-list">
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>2 Movement Assessments per month</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Joint angle tracking</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Balance & stability metrics</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Client progress portal access</li>
+        </ul>
+        <a href="#" class="cta-btn cta-outline">Enroll Client →</a>
+      </div>
+
+      <!-- Moderate -->
+      <div class="price-card" id="card-moderate">
+        <div class="card-tier-name">Moderate</div>
+        <div class="card-title">Active Track</div>
+        <div class="card-tagline">General fitness clients in active programs</div>
+        <div class="price-row">
+          <span class="price-main" id="moderate-price"><sup>$</sup>24</span><span class="price-period">/mo</span>
+        </div>
+        <div class="price-annual" id="moderate-annual" style="display:none">$230/yr · billed annually</div>
+        <div class="price-was" id="moderate-was" style="display:none">Was $288/yr</div>
+        <div style="height:6px;"></div>
+        <div style="font-size:12px; color:var(--green); font-weight:600; margin-bottom:4px;">Trainer earns: <strong>$12.00/mo (50%)</strong></div>
+        <div style="font-size:12px; color:var(--muted); margin-bottom:16px;">Keynetics retains: $12.00/mo</div>
+        <div class="card-divider"></div>
+        <ul class="feature-list">
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>4 Movement Assessments per month</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Joint angle tracking</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Balance & stability metrics</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Session-over-session trend tracking</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Client progress portal access</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Shareable progress reports</li>
+        </ul>
+        <a href="#" class="cta-btn cta-outline">Enroll Client →</a>
+      </div>
+
+      <!-- Advanced -->
+      <div class="price-card featured" id="card-advanced">
+        <div class="featured-badge">BEST VALUE</div>
+        <div class="card-tier-name">Advanced</div>
+        <div class="card-title">Performance Track</div>
+        <div class="card-tagline">Athletes and active rehabilitation clients</div>
+        <div class="price-row">
+          <span class="price-main" id="advanced-price"><sup>$</sup>32</span><span class="price-period">/mo</span>
+        </div>
+        <div class="price-annual" id="advanced-annual" style="display:none">$307/yr · billed annually</div>
+        <div class="price-was" id="advanced-was" style="display:none">Was $384/yr</div>
+        <div style="height:6px;"></div>
+        <div style="font-size:12px; color:var(--green); font-weight:600; margin-bottom:4px;">Trainer earns: <strong>$19.20/mo (60%)</strong></div>
+        <div style="font-size:12px; color:var(--muted); margin-bottom:16px;">Keynetics retains: $12.80/mo</div>
+        <div class="card-divider"></div>
+        <ul class="feature-list">
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>8 Movement Assessments per month</li>
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Joint angle tracking</li>
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Balance & stability metrics</li>
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Session-over-session trend tracking</li>
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Rehab benchmarking tools</li>
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Client progress portal access</li>
+          <li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Shareable progress reports</li>
+        </ul>
+        <a href="#" class="cta-btn cta-featured">Enroll Client →</a>
+      </div>
+
+      <!-- Elite -->
+      <div class="price-card" id="card-elite">
+        <div class="card-tier-name">Elite</div>
+        <div class="card-title">Clinical Track</div>
+        <div class="card-tagline">High-frequency performers and clinical populations</div>
+        <div class="price-row">
+          <span class="price-main" id="elite-price"><sup>$</sup>50</span><span class="price-period">/mo</span>
+        </div>
+        <div class="price-annual" id="elite-annual" style="display:none">$480/yr · billed annually</div>
+        <div class="price-was" id="elite-was" style="display:none">Was $600/yr</div>
+        <div style="height:6px;"></div>
+        <div style="font-size:12px; color:var(--green); font-weight:600; margin-bottom:4px;">Trainer earns: <strong>$35.00/mo (70%)</strong></div>
+        <div style="font-size:12px; color:var(--muted); margin-bottom:16px;">Keynetics retains: $15.00/mo</div>
+        <div class="card-divider"></div>
+        <ul class="feature-list">
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Unlimited Movement Assessments</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>All Advanced tier features</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Clinical outcome documentation</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Exportable progress reports for care coordination</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Priority support</li>
+        </ul>
+        <a href="#" class="cta-btn cta-outline">Enroll Client →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INDIVIDUAL PANELS (shown when tab is selected) -->
+  <div class="tier-panel" id="panel-minimal">
+    <div class="pricing-grid" style="max-width:400px; margin:0 auto;">
+      <div class="price-card">
+        <div class="card-tier-name">Minimal</div>
+        <div class="card-title">Maintenance Track</div>
+        <div class="card-tagline">Clients staying sharp between programs</div>
+        <div class="price-row"><span class="price-main"><sup>$</sup>15</span><span class="price-period">/mo</span></div>
+        <div style="font-size:12px;color:var(--green);font-weight:600;margin:10px 0 4px;">You earn $6.00/mo (40%)</div>
+        <div class="card-divider"></div>
+        <ul class="feature-list">
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>2 MAs per month</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Joint angle tracking</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Balance & stability metrics</li>
+          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Client progress portal</li>
+        </ul>
+        <a href="#" class="cta-btn cta-primary">Enroll Client →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tier-panel" id="panel-moderate"><div class="pricing-grid" style="max-width:400px;margin:0 auto;"><div class="price-card featured"><div class="card-tier-name">Moderate</div><div class="card-title">Active Track</div><div class="card-tagline">General fitness clients in active programs</div><div class="price-row"><span class="price-main"><sup>$</sup>24</span><span class="price-period">/mo</span></div><div style="font-size:12px;color:var(--green);font-weight:600;margin:10px 0 4px;">You earn $12.00/mo (50%)</div><div class="card-divider"></div><ul class="feature-list"><li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>4 MAs per month</li><li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Joint angle + balance tracking</li><li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Session-over-session trends</li><li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Shareable reports</li><li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Client progress portal</li></ul><a href="#" class="cta-btn cta-featured">Enroll Client →</a></div></div></div>
+
+  <div class="tier-panel" id="panel-advanced"><div class="pricing-grid" style="max-width:400px;margin:0 auto;"><div class="price-card featured"><div class="featured-badge">BEST VALUE</div><div class="card-tier-name">Advanced</div><div class="card-title">Performance Track</div><div class="card-tagline">Athletes and active rehab clients</div><div class="price-row"><span class="price-main"><sup>$</sup>32</span><span class="price-period">/mo</span></div><div style="font-size:12px;color:var(--green);font-weight:600;margin:10px 0 4px;">You earn $19.20/mo (60%)</div><div class="card-divider"></div><ul class="feature-list"><li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>8 MAs per month</li><li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>All Moderate features</li><li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Rehab benchmarking tools</li><li><span class="check green"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Full clinical feature set</li></ul><a href="#" class="cta-btn cta-featured">Enroll Client →</a></div></div></div>
+
+  <div class="tier-panel" id="panel-elite"><div class="pricing-grid" style="max-width:400px;margin:0 auto;"><div class="price-card"><div class="card-tier-name">Elite</div><div class="card-title">Clinical Track</div><div class="card-tagline">High-frequency and clinical populations</div><div class="price-row"><span class="price-main"><sup>$</sup>50</span><span class="price-period">/mo</span></div><div style="font-size:12px;color:var(--green);font-weight:600;margin:10px 0 4px;">You earn $35.00/mo (70%)</div><div class="card-divider"></div><ul class="feature-list"><li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Unlimited MAs</li><li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>All Advanced features</li><li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Clinical outcome documentation</li><li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Care coordination exports</li><li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>Priority support</li></ul><a href="#" class="cta-btn cta-primary">Enroll Client →</a></div></div></div>
+
+  <!-- Enterprise banner -->
+  <div class="enterprise-banner">
+    <div>
+      <h3>Bulk subscriptions for studios or clinics?</h3>
+      <p>Group licensing available for gyms, boutique studios, and physical therapy practices. Custom pricing based on roster size.</p>
+    </div>
+    <a href="/cdn-cgi/l/email-protection#bcd5d2dad3fcd7d9c5d2d9c8d5dfcfd0dddecf92dfd3d1">Contact Us for a Quote →</a>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-strip-inner">
+    <div class="stat-block"><span class="num">81%+</span><div class="label">Hardware Gross Margin</div></div>
+    <div class="stat-block"><span class="num">$12/mo</span><div class="label">Avg. Platform Retention Per Client</div></div>
+    <div class="stat-block"><span class="num">$1.47M</span><div class="label">Platform Revenue at 500 Trainers</div></div>
+    <div class="stat-block"><span class="num">Year 2</span><div class="label">Projected Break-Even</div></div>
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="compare-section">
+  <div class="section" style="max-width:1100px;">
+    <div class="section-header">
+      <span class="section-eyebrow">Compare Plans</span>
+      <h2>Everything Side by Side</h2>
+    </div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Minimal</th>
+          <th>Moderate</th>
+          <th class="featured-col">Advanced</th>
+          <th>Elite</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Client monthly cost</td><td>$15</td><td>$24</td><td class="featured-col">$32</td><td>$50</td></tr>
+        <tr><td>Trainer commission</td><td>40% ($6)</td><td>50% ($12)</td><td class="featured-col">60% ($19.20)</td><td>70% ($35)</td></tr>
+        <tr><td>Keynetics retains</td><td>$9/mo</td><td>$12/mo</td><td class="featured-col">$12.80/mo</td><td>$15/mo</td></tr>
+        <tr><td>Movement Assessments</td><td>2/month</td><td>4/month</td><td class="featured-col">8/month</td><td>Unlimited</td></tr>
+        <tr><td>Joint angle tracking</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td class="featured-col"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Balance & stability metrics</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td class="featured-col"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Session trend tracking</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td><td class="featured-col"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Rehab benchmarking</td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td class="featured-col"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Clinical outcome documentation</td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td class="featured-col"><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Care coordination exports</td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td class="featured-col"><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Client progress portal</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td class="featured-col"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Shareable reports</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td><td class="featured-col"><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Priority support</td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td class="featured-col"><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+        <tr><td>Cost per MA</td><td>$7.50</td><td>$6.00</td><td class="featured-col">$4.00</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="section-header">
+    <span class="section-eyebrow">Questions</span>
+    <h2>Frequently Asked</h2>
+  </div>
+
+  <div class="faq-tabs">
+    <button class="faq-tab active" onclick="setFaqGroup('device')">Device</button>
+    <button class="faq-tab" onclick="setFaqGroup('subscriptions')">Subscriptions</button>
+    <button class="faq-tab" onclick="setFaqGroup('commission')">Commission</button>
+    <button class="faq-tab" onclick="setFaqGroup('clinical')">Clinical</button>
+  </div>
+
+  <!-- Device FAQ -->
+  <div class="faq-group active" id="faq-device">
+    <div class="faq-item">
+      <button class="faq-trigger" onclick="toggleFaq(this)">
+        <span>What does the Keynetics sensor hardware measure?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">The Keynetics sensor captures two primary data streams: joint angles and range of motion, which quantifies how far and how accurately joints move through prescribed patterns across sessions; and balance and stability, which measures postural control and weight distribution. These two metrics are critical for injury prevention, rehabilitation benchmarking, and athletic performance optimization.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-trigger" onclick="toggleFaq(this)">
+        <span>What is the difference between Upfront Purchase and Performance-Based?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">Both paths give you full access to the platform and all subscription tiers. The Upfront Purchase is $800 paid once, and you receive full trainer commission from day one. The Performance-Based path has no upfront cost — the $1,000 total device cost is paid through a 10% contribution from your earned subscription commissions until the device is paid off, at which point you receive your full commission going forward.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-trigger" onclick="toggleFaq(this)">
+        <span>Can I use the device for both performance and clinical clients?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">Yes. The Keynetics platform is designed specifically to serve both performance and clinical populations through a single device and platform. Performance clients use Advanced and Elite plans for athlete-grade tracking, while clinical clients use the Elite plan's outcome documentation and care coordination exports. You do not need a separate device or subscription for each population.</div></div>
+    </div>
+  </div>
+
+  <!-- Subscriptions FAQ -->
+  <div class="faq-group" id="faq-subscriptions">
+    <div class="faq-item">
+      <button class="faq-trigger" onclick="toggleFaq(this)">
+        <span>How do my clients subscribe?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">Clients subscribe through you — the trainer. You select the appropriate MA tier for each client and enroll them through your Keynetics trainer dashboard. Keynetics handles billing, and your commission is paid to you on a monthly basis. Clients never transact directly with Keynetics.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-trigger" onclick="toggleFaq(this)">
+        <span>What is a Movement Assessment (MA)?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">A Movement Assessment is a structured sensor-based evaluation session that captures joint angle data and balance/stability metrics for your client. The data is processed through the Keynetics analytics platform and generates a session report visible to both you and your client through the progress portal. MAs are the core product unit of the subscription — the more your clients engage, the more measurable their progress becomes.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-trigger" onclick="toggleFaq(this)">
+        <span>Can clients upgrade between tiers?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">Yes. Clients can be moved to a higher or lower tier at any time through your trainer dashboard. Tier changes take effect at the start of the next billing cycle. Upgrading clients to Advanced or Elite increases both their assessment frequency and your commission rate — creating a strong incentive to demonstrate progress and recommend upgrades.</div></div>
+    </div>
+  </div>
+
+  <!-- Commission FAQ -->
+  <div class="faq-group" id="faq-commission">
+    <div class="faq-item">
+      <button class="faq-trigger" onclick="toggleFaq(this)">
+        <span>Why is the commission structure inverse — higher at higher tiers?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">The inverse commission model is intentional. Trainers earn a higher percentage as clients commit to higher-frequency plans — 40% at Minimal, up to 70% at Elite. This aligns every incentive: trainers are financially motivated to demonstrate enough progress that clients want to upgrade their plans. Keynetics retains $9–$15 per client per month at every tier regardless, providing consistent platform margin while trainers build meaningful passive income.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-trigger" onclick="toggleFaq(this)">
+        <span>When and how are commissions paid?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">Commissions are calculated monthly based on your active subscriber roster and paid out on a rolling 30-day basis. Trainers on the Performance-Based device path will see their 10% contribution automatically deducted until device payoff is reached, after which the full commission rate applies. All commission details are visible in your trainer dashboard in real time.</div></div>
+    </div>
+  </div>
+
+  <!-- Clinical FAQ -->
+  <div class="faq-group" id="faq-clinical">
+    <div class="faq-item">
+      <button class="faq-trigger" onclick="toggleFaq(this)">
+        <span>Is the Keynetics platform suitable for physical therapists?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">Yes. The Elite tier includes clinical outcome documentation and exportable progress reports designed for care coordination. Keynetics is positioned as a functional outcome measurement tool — not a diagnostic system — making it compatible with PT documentation workflows without triggering clinical regulatory requirements. A clinical advisory program is currently in development to further support PT practitioners.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-trigger" onclick="toggleFaq(this)">
+        <span>Does Keynetics offer institutional or clinic-level pricing?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+      </button>
+      <div class="faq-body"><div class="faq-body-inner">Group licensing is available for gyms, boutique studios, and physical therapy clinics that want to enroll multiple practitioners or manage large client rosters. Contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cda4a3aba28da6a8b4a3a8b9a4aebea1acafbee3aea2a0">[email&#160;protected]</a> for custom pricing and configuration options.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-dot"></div>
+          KEYNETICS<span>LABS</span>
+        </a>
+        <p>Precision movement intelligence for personal trainers, fitness professionals, and clinical practitioners. Sensor-based. Data-driven. Built to scale.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="#">For Trainers</a>
+        <a href="#">For Clinicians</a>
+        <a href="#">For Studios</a>
+        <a href="#">Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Team</a>
+        <a href="#">Investor Relations</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="/cdn-cgi/l/email-protection#137a7d757c5378766a7d76677a70607f7271603d707c7e"><span class="__cf_email__" data-cfemail="1871767e7758737d61767d6c717b6b74797a6b367b7775">[email&#160;protected]</span></a>
+        <a href="#">FAQ</a>
+        <a href="#">Documentation</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Keynetics Labs LLC. All rights reserved.</p>
+      <div style="display:flex;gap:20px;">
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── Billing Toggle ────────────────────────────────────────────────────────────
+let isYearly = false;
+
+const monthlyPrices = { minimal:'15', moderate:'24', advanced:'32', elite:'50' };
+const yearlyPrices  = { minimal:'12', moderate:'19', advanced:'26', elite:'40' };
+const yearlyAnnual  = { minimal:'$144/yr · billed annually', moderate:'$230/yr · billed annually', advanced:'$307/yr · billed annually', elite:'$480/yr · billed annually' };
+
+function toggleBilling() {
+  isYearly = !isYearly;
+  applyBilling();
+}
+function setBilling(mode) {
+  isYearly = mode === 'yearly';
+  applyBilling();
+}
+function applyBilling() {
+  const track = document.getElementById('billing-toggle');
+  const lblM  = document.getElementById('label-monthly');
+  const lblY  = document.getElementById('label-yearly');
+
+  track.classList.toggle('yearly', isYearly);
+  track.classList.toggle('monthly', !isYearly);
+  lblM.classList.toggle('active', !isYearly);
+  lblY.classList.toggle('active', isYearly);
+
+  ['minimal','moderate','advanced','elite'].forEach(t => {
+    const priceEl   = document.getElementById(t+'-price');
+    const annualEl  = document.getElementById(t+'-annual');
+    const wasEl     = document.getElementById(t+'-was');
+    if (!priceEl) return;
+
+    if (isYearly) {
+      priceEl.innerHTML = '<sup>$</sup>' + yearlyPrices[t];
+      if (annualEl) { annualEl.textContent = yearlyAnnual[t]; annualEl.style.display='block'; }
+      if (wasEl)    { wasEl.textContent = 'Was $'+String(parseInt(monthlyPrices[t])*12)+'/yr'; wasEl.style.display='block'; }
+    } else {
+      priceEl.innerHTML = '<sup>$</sup>' + monthlyPrices[t];
+      if (annualEl) annualEl.style.display='none';
+      if (wasEl)    wasEl.style.display='none';
+    }
+  });
+}
+
+// ── Tier Tabs ─────────────────────────────────────────────────────────────────
+function setTier(tier) {
+  document.querySelectorAll('.tier-tab').forEach((btn,i) => {
+    const tiers = ['all','minimal','moderate','advanced','elite'];
+    btn.classList.toggle('active', tiers[i] === tier);
+  });
+  document.querySelectorAll('.tier-panel').forEach(p => p.classList.remove('active'));
+  const panel = document.getElementById('panel-'+tier);
+  if (panel) panel.classList.add('active');
+}
+
+// ── FAQ ───────────────────────────────────────────────────────────────────────
+function setFaqGroup(group) {
+  document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.querySelectorAll('.fa
