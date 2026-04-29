@@ -1064,6 +1064,55 @@ section .scope-head h2 em {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
+.price-grid.four {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.price-section-eyebrow {
+  max-width: 1320px;
+  margin: 0 auto 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.price-section-eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.price-section-eyebrow .meta {
+  color: var(--slate);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 12px;
+}
+.price-divider {
+  max-width: 1320px;
+  margin: 80px auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.price-divider .line {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.price-divider .label {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--orange);
+  letter-spacing: -0.01em;
+}
 .price-card {
   background: var(--white);
   border: 1px solid var(--rule);
@@ -1122,6 +1171,7 @@ section .scope-head h2 em {
   margin-bottom: 28px;
   min-height: 42px;
 }
+.price-grid.four .price-card .desc { min-height: 0; }
 .price-card.featured .desc { color: rgba(255,255,255,0.7); }
 .price-card .price {
   font-family: "Fraunces", serif;
@@ -1167,6 +1217,138 @@ section .scope-head h2 em {
   font-weight: 600;
   font-size: 13px;
 }
+
+/* Hardware-specific: sensor count, performance upgrade callout */
+.hw-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 24px;
+}
+.price-card.featured .hw-stat {
+  border-color: rgba(255,255,255,0.15);
+}
+.hw-stat .k {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.price-card.featured .hw-stat .k { color: rgba(255,255,255,0.55); }
+.hw-stat .v {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+.price-card.featured .hw-stat .v { color: var(--white); }
+.hw-stat .v small {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--slate);
+  margin-left: 4px;
+}
+.price-card.featured .hw-stat .v small { color: rgba(255,255,255,0.55); }
+
+.hw-tier-toggle {
+  display: flex;
+  gap: 0;
+  margin-bottom: 14px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 3px;
+  background: var(--mist);
+}
+.price-card.featured .hw-tier-toggle {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+}
+.hw-tier-toggle button {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  padding: 8px 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  cursor: pointer;
+  border-radius: 999px;
+  transition: all 220ms;
+}
+.price-card.featured .hw-tier-toggle button { color: rgba(255,255,255,0.55); }
+.hw-tier-toggle button.active {
+  background: var(--white);
+  color: var(--navy);
+  box-shadow: 0 1px 3px rgba(16,26,66,0.08);
+}
+.price-card.featured .hw-tier-toggle button.active {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.hw-perf-line {
+  font-size: 12px;
+  color: var(--slate);
+  margin-top: -16px;
+  margin-bottom: 24px;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.04em;
+}
+.price-card.featured .hw-perf-line { color: rgba(255,255,255,0.55); }
+.hw-perf-line b { color: var(--orange); font-weight: 600; }
+
+/* Subscription-specific: assessments badge */
+.sub-audience {
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: 16px;
+  font-style: italic;
+  font-family: "Fraunces", serif;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.price-card.featured .sub-audience { color: rgba(255,255,255,0.7); }
+.sub-assessments {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 24px;
+}
+.price-card.featured .sub-assessments { border-color: rgba(255,255,255,0.15); }
+.sub-assessments .num {
+  font-family: "Fraunces", serif;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1;
+}
+.price-card.featured .sub-assessments .num { color: var(--white); }
+.sub-assessments .num.unlimited {
+  font-size: 22px;
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  color: var(--orange);
+}
+.sub-assessments .lbl {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.price-card.featured .sub-assessments .lbl { color: rgba(255,255,255,0.55); }
 .price-card .btn { width: 100%; justify-content: center; }
 .price-card.featured .btn-primary {
   background: var(--orange);
@@ -1360,6 +1542,7 @@ footer .bottom .social a:hover {
   .how-grid { grid-template-columns: 1fr; gap: 64px; }
   .how-grid::before { display: none; }
   .price-grid { grid-template-columns: 1fr; }
+  .price-grid.four { grid-template-columns: 1fr; }
   .price-card.featured { transform: none; }
   .price-card.featured:hover { transform: translateY(-4px); }
   footer .top { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -1704,13 +1887,13 @@ footer .bottom .social a:hover {
 <section class="testimonial">
   <div class="inner">
     <blockquote>
-      "We used to <em>guess</em> at compensation patterns and confirm with a six-figure motion-capture rig. The KEYSense sensor gives me <em>research-grade</em> joint-angle data right at the body — clip it on, capture, done. It changed how I write return-to-play plans."
+      "This technology is <em>groundbreaking.</em> Being able to measure movement data changes the way we train and prepare our players. This is a <em>game-changer.</em>"
     </blockquote>
     <div class="attr">
-      <div class="avatar">DR</div>
+      <div class="avatar">BK</div>
       <div class="who">
-        <b>Dr. Renée Okafor, DPT, OCS, CSCS</b>
-        <span>Director of Sports Rehabilitation · Northbridge Health Network</span>
+        <b>Coach Bryan Kegans</b>
+        <span>Head Football Strength &amp; Conditioning · Oklahoma State University</span>
       </div>
     </div>
   </div>
@@ -1720,59 +1903,190 @@ footer .bottom .social a:hover {
 <section class="scope pricing" id="pricing">
   <div class="scope-head">
     <div class="left">
-      <span class="eyebrow">// Plans</span>
-      <div class="anchor">Pricing that scales with you.</div>
+      <span class="eyebrow">// Pricing</span>
+      <div class="anchor">Hardware once. Insight every month.</div>
     </div>
-    <h2>Built for individuals. <em>Priced</em> for institutions.</h2>
+    <h2>Own the sensor. <em>Subscribe</em> to the science.</h2>
+  </div>
+
+  <!-- ─── PART A: HARDWARE ─── -->
+  <div class="price-section-eyebrow">
+    <span>KEYSense Hardware</span>
+    <span class="meta">One-time purchase · ships with quick-clip strap system</span>
   </div>
 
   <div class="price-grid">
-    <div class="price-card">
-      <div class="tier">Starter</div>
-      <h3>Practice</h3>
-      <div class="desc">For solo clinicians and small training studios capturing their first 50 sessions a month.</div>
-      <div class="price">$149<small>/mo</small></div>
-      <div class="billed">Billed monthly · cancel anytime</div>
+    <!-- Upper Body -->
+    <div class="price-card" data-card="upper">
+      <div class="tier">Upper Body</div>
+      <h3>Upper Kit</h3>
+      <div class="desc">Shoulders, elbows, wrists, and torso. Built for throwing-sport mechanics, return-to-play upper-extremity, and overhead athletes.</div>
+      <div class="hw-stat">
+        <span class="k">Sensors</span>
+        <span class="v">4<small>/ kit</small></span>
+      </div>
+      <div class="hw-tier-toggle" data-toggle="upper">
+        <button class="active" data-tier="health" data-target="upper">Health</button>
+        <button data-tier="performance" data-target="upper">Performance</button>
+      </div>
+      <div class="price" data-price="upper"><small>$</small>399<small>/once</small></div>
+      <div class="billed" data-billed="upper">Health tier · standard sampling</div>
+      <div class="hw-perf-line"><b>Performance</b> upgrade adds 1000 Hz mode + competition export · <b>+$200</b></div>
       <ul>
-        <li>Up to 50 sessions / mo</li>
-        <li>2 dashboard seats</li>
-        <li>All 5 Keynetics metrics</li>
-        <li>PDF report export</li>
+        <li>4 IMU sensors + charging case</li>
+        <li>Quick-clip strap system</li>
+        <li>Bluetooth Low Energy + on-board storage</li>
+        <li>2-year hardware warranty</li>
+        <li>Includes Fitness subscription, 30 days</li>
+      </ul>
+      <a href="#cta" class="btn btn-ghost">Add to quote</a>
+    </div>
+
+    <!-- Lower Body -->
+    <div class="price-card" data-card="lower">
+      <div class="tier">Lower Body</div>
+      <h3>Lower Kit</h3>
+      <div class="desc">Hips, knees, ankles, and feet. Our most-purchased configuration — the foundation of running, jumping, cutting, and gait analysis.</div>
+      <div class="hw-stat">
+        <span class="k">Sensors</span>
+        <span class="v">6<small>/ kit</small></span>
+      </div>
+      <div class="hw-tier-toggle" data-toggle="lower">
+        <button class="active" data-tier="health" data-target="lower">Health</button>
+        <button data-tier="performance" data-target="lower">Performance</button>
+      </div>
+      <div class="price" data-price="lower"><small>$</small>499<small>/once</small></div>
+      <div class="billed" data-billed="lower">Health tier · standard sampling</div>
+      <div class="hw-perf-line"><b>Performance</b> upgrade adds 1000 Hz mode + competition export · <b>+$200</b></div>
+      <ul>
+        <li>6 IMU sensors + charging case</li>
+        <li>Quick-clip strap system</li>
+        <li>Bluetooth Low Energy + on-board storage</li>
+        <li>2-year hardware warranty</li>
+        <li>Includes Fitness subscription, 30 days</li>
+      </ul>
+      <a href="#cta" class="btn btn-ghost">Add to quote</a>
+    </div>
+
+    <!-- Full Body -->
+    <div class="price-card featured" data-card="full">
+      <div class="tier">Full Body</div>
+      <h3>Full Kit</h3>
+      <div class="desc">Every joint, every plane. The complete kinematic chain for elite labs, research, and clinics that need the whole picture in one capture.</div>
+      <div class="hw-stat">
+        <span class="k">Sensors</span>
+        <span class="v">10<small>/ kit</small></span>
+      </div>
+      <div class="hw-tier-toggle" data-toggle="full">
+        <button class="active" data-tier="health" data-target="full">Health</button>
+        <button data-tier="performance" data-target="full">Performance</button>
+      </div>
+      <div class="price" data-price="full"><small>$</small>799<small>/once</small></div>
+      <div class="billed" data-billed="full">Health tier · standard sampling</div>
+      <div class="hw-perf-line"><b>Performance</b> upgrade adds 1000 Hz mode + competition export · <b>+$200</b></div>
+      <ul>
+        <li>10 IMU sensors + charging case</li>
+        <li>Quick-clip strap system</li>
+        <li>Bluetooth Low Energy + on-board storage</li>
+        <li>3-year hardware warranty</li>
+        <li>Includes Athletics subscription, 60 days</li>
+      </ul>
+      <a href="#cta" class="btn btn-primary">Add to quote <span class="arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- divider -->
+  <div class="price-divider">
+    <span class="line"></span>
+    <span class="label">+ a plan for every athlete.</span>
+    <span class="line"></span>
+  </div>
+
+  <!-- ─── PART B: SUBSCRIPTIONS ─── -->
+  <div class="price-section-eyebrow">
+    <span>Client Subscriptions</span>
+    <span class="meta">Monthly recurring · per athlete · cancel anytime</span>
+  </div>
+
+  <div class="price-grid four">
+    <!-- Fitness -->
+    <div class="price-card">
+      <div class="tier">Fitness</div>
+      <h3>Fitness</h3>
+      <div class="sub-audience">For beginners.</div>
+      <div class="price"><small>$</small>15<small>/mo</small></div>
+      <div class="billed">Per athlete · billed monthly</div>
+      <div class="sub-assessments">
+        <span class="num">2</span>
+        <span class="lbl">Movement assessments / mo</span>
+      </div>
+      <ul>
+        <li>Mobility Score &amp; trends</li>
+        <li>Athlete-facing report</li>
+        <li>Progress tracking, 12 mo</li>
         <li>Email support</li>
       </ul>
-      <a href="#" class="btn btn-ghost">Start free trial</a>
+      <a href="#cta" class="btn btn-ghost">Start with Fitness</a>
     </div>
 
+    <!-- Athletics -->
     <div class="price-card featured">
-      <div class="tier">Professional</div>
-      <h3>Performance</h3>
-      <div class="desc">For collegiate teams, sports-med clinics, and HP departments running structured longitudinal programs.</div>
-      <div class="price">$499<small>/mo</small></div>
-      <div class="billed">Billed annually · per facility</div>
+      <div class="tier">Athletics</div>
+      <h3>Athletics</h3>
+      <div class="sub-audience">For athletes.</div>
+      <div class="price"><small>$</small>22<small>/mo</small></div>
+      <div class="billed">Per athlete · billed monthly</div>
+      <div class="sub-assessments">
+        <span class="num">4</span>
+        <span class="lbl">Movement assessments / mo</span>
+      </div>
       <ul>
-        <li>Unlimited sessions</li>
-        <li>10 dashboard seats</li>
-        <li>Longitudinal cohort tracking</li>
-        <li>API + CSV export</li>
-        <li>Priority support · SLA</li>
+        <li>All Fitness features</li>
+        <li>All 5 Keynetics metrics</li>
+        <li>Coach + athlete dashboards</li>
+        <li>PDF report export</li>
       </ul>
-      <a href="#" class="btn btn-primary">Get started <span class="arrow">→</span></a>
+      <a href="#cta" class="btn btn-primary">Choose Athletics <span class="arrow">→</span></a>
     </div>
 
+    <!-- Advanced -->
     <div class="price-card">
-      <div class="tier">Enterprise</div>
-      <h3>Research</h3>
-      <div class="desc">For pro franchises, university research labs, and health systems with custom integration needs.</div>
-      <div class="price">Custom</div>
-      <div class="billed">Annual contract · scoped together</div>
+      <div class="tier">Advanced</div>
+      <h3>Advanced</h3>
+      <div class="sub-audience">For competitors.</div>
+      <div class="price"><small>$</small>28<small>/mo</small></div>
+      <div class="billed">Per athlete · billed monthly</div>
+      <div class="sub-assessments">
+        <span class="num">8</span>
+        <span class="lbl">Movement assessments / mo</span>
+      </div>
       <ul>
-        <li>Unlimited everything</li>
+        <li>All Athletics features</li>
+        <li>Longitudinal cohort tracking</li>
+        <li>Risk &amp; asymmetry flagging</li>
+        <li>API + CSV export</li>
+      </ul>
+      <a href="#cta" class="btn btn-ghost">Choose Advanced</a>
+    </div>
+
+    <!-- Elite -->
+    <div class="price-card">
+      <div class="tier">Elite</div>
+      <h3>Elite</h3>
+      <div class="sub-audience">For College &amp; Pro.</div>
+      <div class="price"><small>$</small>40<small>/mo</small></div>
+      <div class="billed">Per athlete · billed monthly</div>
+      <div class="sub-assessments">
+        <span class="num unlimited">Unlimited</span>
+        <span class="lbl">assessments / mo</span>
+      </div>
+      <ul>
+        <li>All Advanced features</li>
         <li>Custom metric development</li>
         <li>FHIR / EMR integration</li>
-        <li>On-prem deployment option</li>
-        <li>Dedicated success engineer</li>
+        <li>Priority support · SLA</li>
       </ul>
-      <a href="#" class="btn btn-ghost">Talk to sales</a>
+      <a href="#cta" class="btn btn-ghost">Talk to sales</a>
     </div>
   </div>
 </section>
@@ -1866,6 +2180,31 @@ footer .bottom .social a:hover {
 </style>
 
 <script>
+  // Hardware Health/Performance toggle
+  const HW_PRICES = {
+    upper:  { health: 399, performance: 599 },
+    lower:  { health: 499, performance: 699 },
+    full:   { health: 799, performance: 999 },
+  };
+  document.querySelectorAll('.hw-tier-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.dataset.target;
+      const tier = btn.dataset.tier;
+      // Toggle button active state
+      const group = btn.closest('.hw-tier-toggle');
+      group.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Update price + billed line
+      const priceEl = document.querySelector(`[data-price="${card}"]`);
+      const billedEl = document.querySelector(`[data-billed="${card}"]`);
+      const newPrice = HW_PRICES[card][tier];
+      priceEl.innerHTML = `<small>$</small>${newPrice}<small>/once</small>`;
+      billedEl.textContent = tier === 'health'
+        ? 'Health tier · standard sampling'
+        : 'Performance tier · 1000 Hz mode';
+    });
+  });
+
   // Smooth scroll for anchor links + tiny nav scroll behavior
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
