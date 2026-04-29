@@ -1053,6 +1053,138 @@ section .scope-head h2 em {
   color: var(--slate);
 }
 
+/* ─────── FOUNDERS ─────── */
+.founders {
+  background: linear-gradient(180deg, var(--mist) 0%, #ECEEF3 100%);
+  padding: 140px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.founders::before {
+  content: "";
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background-image: url("data:image/png;base64,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");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.025;
+  pointer-events: none;
+}
+.founders .scope-head { margin-bottom: 64px; }
+.founders-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.founder-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 320ms ease, border-color 320ms ease;
+  cursor: default;
+}
+.founder-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -16px rgba(16,26,66,0.22);
+  border-color: transparent;
+}
+.founder-portrait {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  overflow: hidden;
+  background: var(--navy);
+}
+.founder-portrait svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 600ms ease;
+}
+.founder-card:hover .founder-portrait svg {
+  transform: scale(1.04);
+}
+.founder-portrait::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 420ms ease;
+}
+.founder-card:hover .founder-portrait::after { transform: scaleX(1); }
+.founder-portrait .placeholder-tag {
+  position: absolute;
+  top: 14px; right: 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 4px 8px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.founder-meta {
+  padding: 22px 22px 24px;
+}
+.founder-meta .role {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.founder-meta .name {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+.founder-meta .title {
+  font-size: 12.5px;
+  color: var(--slate);
+  line-height: 1.4;
+}
+.founder-meta .links {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.founder-meta .links a {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--mist);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate);
+  transition: all 200ms;
+}
+.founder-meta .links a:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
 /* ─────── PRICING ─────── */
 .pricing {
   background: var(--mist);
@@ -1543,6 +1675,7 @@ footer .bottom .social a:hover {
   .how-grid::before { display: none; }
   .price-grid { grid-template-columns: 1fr; }
   .price-grid.four { grid-template-columns: 1fr; }
+  .founders-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .price-card.featured { transform: none; }
   .price-card.featured:hover { transform: translateY(-4px); }
   footer .top { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -1566,6 +1699,8 @@ footer .bottom .social a:hover {
   footer .top { grid-template-columns: 1fr; }
   footer .bottom { flex-direction: column; align-items: flex-start; }
   .floating-card { display: none; }
+  .founders { padding: 64px 20px; }
+  .founders-grid { grid-template-columns: 1fr; gap: 14px; }
 }
 </style>
 </head>
@@ -1584,8 +1719,8 @@ footer .bottom .social a:hover {
       <li><a href="#platform">Platform</a></li>
       <li><a href="#metrics">Metrics</a></li>
       <li><a href="#how">How it works</a></li>
+      <li><a href="#team">Team</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#research">Research</a></li>
     </ul>
     <div class="nav-cta">
       <a href="#" class="signin">Sign in</a>
@@ -1896,6 +2031,205 @@ footer .bottom .social a:hover {
         <span>Head Football Strength &amp; Conditioning · Oklahoma State University</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ─────────── FOUNDERS ─────────── -->
+<section class="scope founders" id="team">
+  <div class="scope-head">
+    <div class="left">
+      <span class="eyebrow">// Founders</span>
+      <div class="anchor">Built by operators &amp; scientists.</div>
+    </div>
+    <h2>The team behind <em>the sensor.</em></h2>
+  </div>
+
+  <div class="founders-grid">
+
+    <!-- Ian Abetya — CEO -->
+    <article class="founder-card">
+      <div class="founder-portrait">
+        <svg viewBox="0 0 240 252" xmlns="http://www.w3.org/2000/svg" aria-label="Ian Abetya portrait placeholder">
+          <defs>
+            <linearGradient id="g-ian" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#1a2557"/>
+              <stop offset="100%" stop-color="#101A42"/>
+            </linearGradient>
+            <pattern id="dots-ian" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="0.7" fill="rgba(255,255,255,0.05)"/>
+            </pattern>
+          </defs>
+          <rect width="240" height="252" fill="url(#g-ian)"/>
+          <rect width="240" height="252" fill="url(#dots-ian)"/>
+          <!-- abstract geometric form -->
+          <circle cx="120" cy="116" r="60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <circle cx="120" cy="116" r="42" fill="rgba(245,130,32,0.12)" stroke="#F58220" stroke-width="1.5"/>
+          <text x="120" y="132" text-anchor="middle" font-family="Fraunces, serif" font-size="56" font-weight="500" fill="#FFFFFF" letter-spacing="-1">IA</text>
+          <!-- corner mark -->
+          <line x1="20" y1="232" x2="48" y2="232" stroke="#F58220" stroke-width="2"/>
+        </svg>
+        <span class="placeholder-tag">Photo · soon</span>
+      </div>
+      <div class="founder-meta">
+        <div class="role">CEO · Founder</div>
+        <div class="name">Ian Abetya</div>
+        <div class="title">Chief Executive Officer</div>
+        <div class="links">
+          <a href="#" title="LinkedIn">in</a>
+          <a href="#" title="Email">@</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- MD Taylor — COO -->
+    <article class="founder-card">
+      <div class="founder-portrait">
+        <svg viewBox="0 0 240 252" xmlns="http://www.w3.org/2000/svg" aria-label="MD Taylor portrait placeholder">
+          <defs>
+            <linearGradient id="g-md" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#101A42"/>
+              <stop offset="100%" stop-color="#0A1131"/>
+            </linearGradient>
+            <pattern id="dots-md" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="0.7" fill="rgba(255,255,255,0.05)"/>
+            </pattern>
+          </defs>
+          <rect width="240" height="252" fill="url(#g-md)"/>
+          <rect width="240" height="252" fill="url(#dots-md)"/>
+          <!-- diagonal accent strip mirroring K geometry -->
+          <polygon points="160,40 200,40 130,180 90,180" fill="rgba(245,130,32,0.10)"/>
+          <polygon points="180,50 200,50 145,170 125,170" fill="rgba(245,130,32,0.16)" stroke="#F58220" stroke-width="1"/>
+          <text x="120" y="132" text-anchor="middle" font-family="Fraunces, serif" font-size="56" font-weight="500" fill="#FFFFFF" letter-spacing="-1">MD</text>
+          <line x1="20" y1="232" x2="48" y2="232" stroke="#F58220" stroke-width="2"/>
+        </svg>
+        <span class="placeholder-tag">Photo · soon</span>
+      </div>
+      <div class="founder-meta">
+        <div class="role">COO · Founder</div>
+        <div class="name">MD Taylor</div>
+        <div class="title">Chief Operating Officer</div>
+        <div class="links">
+          <a href="#" title="LinkedIn">in</a>
+          <a href="#" title="Email">@</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Steve McDermott — CTO -->
+    <article class="founder-card">
+      <div class="founder-portrait">
+        <svg viewBox="0 0 240 252" xmlns="http://www.w3.org/2000/svg" aria-label="Steve McDermott portrait placeholder">
+          <defs>
+            <linearGradient id="g-sm" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#1a2557"/>
+              <stop offset="100%" stop-color="#0A1131"/>
+            </linearGradient>
+            <pattern id="grid-sm" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="240" height="252" fill="url(#g-sm)"/>
+          <rect width="240" height="252" fill="url(#grid-sm)"/>
+          <!-- circuit-like nodes for tech vibe -->
+          <g stroke="rgba(245,130,32,0.5)" stroke-width="1" fill="none">
+            <line x1="60" y1="60" x2="180" y2="60"/>
+            <line x1="180" y1="60" x2="180" y2="170"/>
+            <line x1="60" y1="170" x2="60" y2="60"/>
+          </g>
+          <g fill="#F58220">
+            <circle cx="60" cy="60" r="3"/>
+            <circle cx="180" cy="60" r="3"/>
+            <circle cx="180" cy="170" r="3"/>
+            <circle cx="60" cy="170" r="3"/>
+          </g>
+          <text x="120" y="132" text-anchor="middle" font-family="Fraunces, serif" font-size="56" font-weight="500" fill="#FFFFFF" letter-spacing="-1">SM</text>
+          <line x1="20" y1="232" x2="48" y2="232" stroke="#F58220" stroke-width="2"/>
+        </svg>
+        <span class="placeholder-tag">Photo · soon</span>
+      </div>
+      <div class="founder-meta">
+        <div class="role">CTO · Founder</div>
+        <div class="name">Steve McDermott</div>
+        <div class="title">Chief Technology Officer</div>
+        <div class="links">
+          <a href="#" title="LinkedIn">in</a>
+          <a href="#" title="Email">@</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Chris Frock — CDO -->
+    <article class="founder-card">
+      <div class="founder-portrait">
+        <svg viewBox="0 0 240 252" xmlns="http://www.w3.org/2000/svg" aria-label="Chris Frock portrait placeholder">
+          <defs>
+            <linearGradient id="g-cf" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#101A42"/>
+              <stop offset="100%" stop-color="#1a2557"/>
+            </linearGradient>
+            <pattern id="dots-cf" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="0.7" fill="rgba(255,255,255,0.05)"/>
+            </pattern>
+          </defs>
+          <rect width="240" height="252" fill="url(#g-cf)"/>
+          <rect width="240" height="252" fill="url(#dots-cf)"/>
+          <!-- waveform / data signal motif for design role -->
+          <path d="M 30 116 Q 60 80, 90 116 T 150 116 T 210 116" stroke="rgba(245,130,32,0.5)" stroke-width="1.5" fill="none"/>
+          <path d="M 30 140 Q 60 170, 90 140 T 150 140 T 210 140" stroke="rgba(255,255,255,0.15)" stroke-width="1" fill="none"/>
+          <text x="120" y="132" text-anchor="middle" font-family="Fraunces, serif" font-size="56" font-weight="500" fill="#FFFFFF" letter-spacing="-1">CF</text>
+          <line x1="20" y1="232" x2="48" y2="232" stroke="#F58220" stroke-width="2"/>
+        </svg>
+        <span class="placeholder-tag">Photo · soon</span>
+      </div>
+      <div class="founder-meta">
+        <div class="role">CDO · Founder</div>
+        <div class="name">Chris Frock</div>
+        <div class="title">Chief Design Officer</div>
+        <div class="links">
+          <a href="#" title="LinkedIn">in</a>
+          <a href="#" title="Email">@</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Elvis Lara — CMO -->
+    <article class="founder-card">
+      <div class="founder-portrait">
+        <svg viewBox="0 0 240 252" xmlns="http://www.w3.org/2000/svg" aria-label="Elvis Lara portrait placeholder">
+          <defs>
+            <linearGradient id="g-el" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#1a2557"/>
+              <stop offset="100%" stop-color="#101A42"/>
+            </linearGradient>
+            <pattern id="dots-el" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="0.7" fill="rgba(255,255,255,0.05)"/>
+            </pattern>
+          </defs>
+          <rect width="240" height="252" fill="url(#g-el)"/>
+          <rect width="240" height="252" fill="url(#dots-el)"/>
+          <!-- concentric arcs for marketing/reach -->
+          <g fill="none" stroke="rgba(245,130,32,0.3)" stroke-width="1">
+            <circle cx="120" cy="116" r="35"/>
+            <circle cx="120" cy="116" r="55"/>
+            <circle cx="120" cy="116" r="75"/>
+          </g>
+          <circle cx="120" cy="116" r="22" fill="rgba(245,130,32,0.18)" stroke="#F58220" stroke-width="1.5"/>
+          <text x="120" y="132" text-anchor="middle" font-family="Fraunces, serif" font-size="56" font-weight="500" fill="#FFFFFF" letter-spacing="-1">EL</text>
+          <line x1="20" y1="232" x2="48" y2="232" stroke="#F58220" stroke-width="2"/>
+        </svg>
+        <span class="placeholder-tag">Photo · soon</span>
+      </div>
+      <div class="founder-meta">
+        <div class="role">CMO · Founder</div>
+        <div class="name">Elvis Lara</div>
+        <div class="title">Chief Marketing Officer</div>
+        <div class="links">
+          <a href="#" title="LinkedIn">in</a>
+          <a href="#" title="Email">@</a>
+        </div>
+      </div>
+    </article>
+
   </div>
 </section>
 
@@ -2214,7 +2548,7 @@ footer .bottom .social a:hover {
   });
 
   // Subtle on-scroll reveal — set initial state via JS (so no-JS fallback still shows content)
-  const revealEls = document.querySelectorAll('.metric-card, .how-step, .price-card, .stat');
+  const revealEls = document.querySelectorAll('.metric-card, .how-step, .price-card, .stat, .founder-card');
   // Only hide if IntersectionObserver is supported AND we're rendering live
   if ('IntersectionObserver' in window) {
     revealEls.forEach((el, i) => {
