@@ -1917,7 +1917,7 @@ footer .bottom .social a:hover {
       <h2>Meet <em>KEYSense.</em></h2>
       <p class="desc">A wearable movement-analytics platform built around the <b style="color:var(--orange);font-weight:600">KEYSense sensor</b> — small, body-worn IMUs that capture high-fidelity biomechanics directly at the source. No suits, no lab cables, no inferred data.</p>
       <ul class="features">
-        <li><b>KEYSense sensor capture</b> directly at the body. 9-axis IMU, 1000 Hz sampling, sub-degree joint resolution.</li>
+        <li><b>KEYSense sensor capture</b> directly at the body. 6-axis IMU, 125 Hz sampling, sub-degree joint resolution.</li>
         <li><b>Five validated metrics</b> — JAD, BFSI, SIS, RME, FRI — exported in every report.</li>
         <li><b>Coach &amp; clinician dashboards</b> with longitudinal tracking and risk flagging.</li>
         <li><b>API &amp; FHIR export</b> for integration with EMR and team-management systems.</li>
@@ -2000,7 +2000,7 @@ footer .bottom .social a:hover {
     <div class="how-step">
       <div class="marker">01</div>
       <h3>Capture</h3>
-      <p>Place the KEYSense sensor pack on the athlete using the quick-clip strap system. Record a single movement — squat, sprint, jump, gait — directly from the body. 1000 Hz of 9-axis inertial data streams in real time. No suit. No cables. No lab.</p>
+      <p>Place the KEYSense sensor pack on the athlete using the quick-clip strap system. Record a single movement — squat, sprint, jump, gait — directly from the body. 125 Hz of 6-axis inertial data streams in real time. No suit. No cables. No lab.</p>
       <span class="tag">≈ 90 seconds</span>
     </div>
     <div class="how-step">
@@ -2264,8 +2264,8 @@ footer .bottom .social a:hover {
         <button data-tier="performance" data-target="upper">Performance</button>
       </div>
       <div class="price" data-price="upper"><small>$</small>399<small>/once</small></div>
-      <div class="billed" data-billed="upper">Health tier · standard sampling</div>
-      <div class="hw-perf-line"><b>Performance</b> upgrade adds 1000 Hz mode + competition export · <b>+$200</b></div>
+      <div class="billed" data-billed="upper">Health tier · 125 Hz capture</div>
+      <div class="hw-perf-line"><b>Performance</b> upgrade adds high-rate capture + competition export · <b>+$200</b></div>
       <ul>
         <li>4 IMU sensors + charging case</li>
         <li>Quick-clip strap system</li>
@@ -2290,8 +2290,8 @@ footer .bottom .social a:hover {
         <button data-tier="performance" data-target="lower">Performance</button>
       </div>
       <div class="price" data-price="lower"><small>$</small>499<small>/once</small></div>
-      <div class="billed" data-billed="lower">Health tier · standard sampling</div>
-      <div class="hw-perf-line"><b>Performance</b> upgrade adds 1000 Hz mode + competition export · <b>+$200</b></div>
+      <div class="billed" data-billed="lower">Health tier · 125 Hz capture</div>
+      <div class="hw-perf-line"><b>Performance</b> upgrade adds high-rate capture + competition export · <b>+$200</b></div>
       <ul>
         <li>6 IMU sensors + charging case</li>
         <li>Quick-clip strap system</li>
@@ -2316,8 +2316,8 @@ footer .bottom .social a:hover {
         <button data-tier="performance" data-target="full">Performance</button>
       </div>
       <div class="price" data-price="full"><small>$</small>799<small>/once</small></div>
-      <div class="billed" data-billed="full">Health tier · standard sampling</div>
-      <div class="hw-perf-line"><b>Performance</b> upgrade adds 1000 Hz mode + competition export · <b>+$200</b></div>
+      <div class="billed" data-billed="full">Health tier · 125 Hz capture</div>
+      <div class="hw-perf-line"><b>Performance</b> upgrade adds high-rate capture + competition export · <b>+$200</b></div>
       <ul>
         <li>10 IMU sensors + charging case</li>
         <li>Quick-clip strap system</li>
@@ -2534,8 +2534,8 @@ footer .bottom .social a:hover {
       const newPrice = HW_PRICES[card][tier];
       priceEl.innerHTML = `<small>$</small>${newPrice}<small>/once</small>`;
       billedEl.textContent = tier === 'health'
-        ? 'Health tier · standard sampling'
-        : 'Performance tier · 1000 Hz mode';
+        ? 'Health tier · 125 Hz capture'
+        : 'Performance tier · high-rate capture';
     });
   });
 
