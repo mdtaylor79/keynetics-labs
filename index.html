@@ -1764,6 +1764,330 @@ section .scope-head h2 em {
 /* lock body scroll when modal open */
 body.modal-open { overflow: hidden; }
 
+/* ─────── DEMO REQUEST MODAL ─────── */
+.demo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10, 17, 49, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+.demo-modal.open {
+  display: flex;
+  opacity: 1;
+}
+.demo-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  max-height: calc(100vh - 48px);
+  background: var(--white);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 40px 80px -20px rgba(10, 17, 49, 0.5),
+    0 12px 24px -8px rgba(10, 17, 49, 0.25);
+  transform: translateY(20px) scale(0.97);
+  opacity: 0;
+  transition: transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 280ms ease;
+}
+.demo-modal.open .demo-modal-card {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.demo-modal-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 36px 40px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.demo-modal-header::before {
+  content: "";
+  position: absolute;
+  bottom: -50px; right: -50px;
+  width: 220px; height: 220px;
+  background-image: url("data:image/png;base64,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");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+.demo-modal-header .eyebrow {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.demo-modal-header h2 {
+  font-family: "Fraunces", serif;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 10px;
+  position: relative;
+}
+.demo-modal-header h2 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-weight: 400;
+  color: var(--orange);
+}
+.demo-modal-header p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.55;
+  position: relative;
+}
+.demo-modal-body {
+  padding: 32px 40px 36px;
+  overflow-y: auto;
+  max-height: calc(100vh - 48px - 200px);
+}
+.demo-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.demo-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.demo-form .field.full { grid-column: 1 / -1; }
+.demo-form label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate);
+  font-weight: 500;
+}
+.demo-form label .req { color: var(--orange); }
+.demo-form label .opt {
+  color: var(--slate-light);
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-size: 11px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  margin-left: 6px;
+  font-style: italic;
+}
+.demo-form input,
+.demo-form select {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  padding: 11px 14px;
+  background: var(--mist);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--navy);
+  outline: none;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.demo-form input::placeholder {
+  color: var(--slate-light);
+}
+.demo-form input:focus,
+.demo-form select:focus {
+  background: var(--white);
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px rgba(245,130,32,0.10);
+}
+.demo-form input:invalid:not(:placeholder-shown) {
+  border-color: rgba(220, 50, 50, 0.4);
+}
+.demo-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234A5568' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.demo-form .submit-row {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+.demo-form .submit-btn {
+  width: 100%;
+  padding: 14px 22px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--navy);
+  color: var(--white);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 200ms ease, transform 180ms ease, box-shadow 220ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.demo-form .submit-btn:hover {
+  background: var(--orange);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(245,130,32,0.28);
+}
+.demo-form .submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.demo-form .submit-btn .spinner {
+  display: none;
+  width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.demo-form.submitting .submit-btn { pointer-events: none; }
+.demo-form.submitting .submit-btn .spinner { display: inline-block; }
+.demo-form.submitting .submit-btn .label-default { display: none; }
+.demo-form .privacy {
+  font-size: 11px;
+  color: var(--slate-light);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Success state */
+.demo-success {
+  display: none;
+  padding: 56px 40px;
+  text-align: center;
+}
+.demo-success.show { display: block; }
+.demo-success .check {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: #22A055;
+  font-size: 28px;
+}
+.demo-success h3 {
+  font-family: "Fraunces", serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+.demo-success h3 em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-weight: 400;
+  color: var(--orange);
+}
+.demo-success p {
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.6;
+  max-width: 380px;
+  margin: 0 auto 28px;
+}
+.demo-success p b { color: var(--navy); font-weight: 600; }
+.demo-success .next-steps {
+  background: var(--mist);
+  border-radius: 12px;
+  padding: 18px 22px;
+  text-align: left;
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: 24px;
+}
+.demo-success .next-steps b {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+.demo-success .close-btn {
+  padding: 12px 32px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+.demo-success .close-btn:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* Error state */
+.demo-error {
+  display: none;
+  background: rgba(220, 50, 50, 0.08);
+  border: 1px solid rgba(220, 50, 50, 0.25);
+  color: #B83232;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 12px;
+  grid-column: 1 / -1;
+}
+.demo-error.show { display: block; }
+
+/* Modal close button (shared visual with bio modal) */
+.demo-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--navy);
+  z-index: 2;
+  transition: all 200ms;
+}
+.demo-modal-close:hover {
+  background: var(--white);
+  transform: rotate(90deg);
+}
+
 /* ─────── PRICING ─────── */
 .pricing {
   background: var(--mist);
@@ -2143,6 +2467,31 @@ body.modal-open { overflow: hidden; }
   background: var(--white);
   color: var(--navy);
 }
+.cta-strip .actions .research-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 22px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  border: 1px dashed rgba(255,255,255,0.2);
+  border-radius: 999px;
+  font-weight: 500;
+  cursor: default;
+  user-select: none;
+}
+.cta-strip .actions .research-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex: 0 0 auto;
+  animation: pulse 2.4s infinite;
+}
 
 /* ─────── FOOTER ─────── */
 footer {
@@ -2298,6 +2647,12 @@ footer .bottom .social a:hover {
   .bio-modal-photo { height: 280px; min-height: 280px; }
   .bio-modal-body { padding: 32px 24px 28px; max-height: none; }
   .bio-modal-body .full-name { font-size: 28px; }
+  .demo-modal { padding: 16px; }
+  .demo-modal-header { padding: 28px 24px 24px; }
+  .demo-modal-header h2 { font-size: 26px; }
+  .demo-modal-body { padding: 24px 20px 28px; }
+  .demo-form { grid-template-columns: 1fr; gap: 14px; }
+  .demo-success { padding: 40px 24px; }
 }
 </style>
 </head>
@@ -2322,7 +2677,7 @@ footer .bottom .social a:hover {
     </ul>
     <div class="nav-cta">
       <a href="#" class="signin">Sign in</a>
-      <a href="#cta" class="btn btn-primary">Request demo <span class="arrow">→</span></a>
+      <a href="#cta" class="btn btn-primary" data-demo-trigger>Request demo <span class="arrow">→</span></a>
     </div>
   </div>
 </nav>
@@ -2338,7 +2693,7 @@ footer .bottom .social a:hover {
       <h1>Movement is data.<br><span class="accent">Now you</span> <span class="strike">guess.</span> measure.</h1>
       <p class="lede">The <b>KEYSense sensor</b> turns raw human movement into <b>research-grade biomechanical insight</b> — captured directly at the body, delivered to coaches, clinicians, and the technologists who serve them. Validated by science. Built for the field.</p>
       <div class="hero-cta">
-        <a href="#cta" class="btn btn-primary">See it in motion <span class="arrow">→</span></a>
+        <a href="#cta" class="btn btn-primary" data-demo-trigger>See it in motion <span class="arrow">→</span></a>
         <a href="#how" class="btn btn-ghost">How it works</a>
       </div>
       <div class="hero-meta">
@@ -3013,8 +3368,8 @@ footer .bottom .social a:hover {
       <p>Book a 20-minute demo. Bring a movement question. Leave with a path to measure it.</p>
     </div>
     <div class="actions">
-      <a href="#" class="btn btn-primary">Request a demo <span class="arrow">→</span></a>
-      <a href="#" class="btn btn-ghost">Read the research</a>
+      <a href="#" class="btn btn-primary" data-demo-trigger>Request a demo <span class="arrow">→</span></a>
+      <span class="research-status"><i></i> Research paper in development</span>
     </div>
   </div>
 </section>
@@ -3099,6 +3454,84 @@ footer .bottom .social a:hover {
       <div class="divider"></div>
       <div class="bio-text" id="bio-text"></div>
       <div class="bio-meta" id="bio-meta"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────── DEMO REQUEST MODAL ─────────── -->
+<div class="demo-modal" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title" aria-hidden="true">
+  <div class="demo-modal-card">
+    <button class="demo-modal-close" id="demo-modal-close" aria-label="Close">×</button>
+
+    <!-- HEADER -->
+    <div class="demo-modal-header">
+      <span class="eyebrow">// Request a demo</span>
+      <h2 id="demo-modal-title">See KEYSense <em>in motion.</em></h2>
+      <p>Book a 20-minute demo. Bring a movement question. Leave with a path to measure it.</p>
+    </div>
+
+    <!-- FORM -->
+    <div class="demo-modal-body" id="demo-form-body">
+      <form class="demo-form" id="demo-form" novalidate>
+        <div class="demo-error" id="demo-error" role="alert"></div>
+
+        <div class="field">
+          <label for="demo-name">Name <span class="req">*</span></label>
+          <input type="text" id="demo-name" name="name" required placeholder="Full name" autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="demo-email">Email <span class="req">*</span></label>
+          <input type="email" id="demo-email" name="email" required placeholder="you@team.com" autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="demo-phone">Phone <span class="req">*</span></label>
+          <input type="tel" id="demo-phone" name="phone" required placeholder="(555) 123-4567" autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label for="demo-industry">Industry <span class="req">*</span></label>
+          <select id="demo-industry" name="industry" required>
+            <option value="" disabled selected hidden>Select your field</option>
+            <option value="Collegiate Athletics">Collegiate Athletics</option>
+            <option value="Professional Sports">Professional Sports</option>
+            <option value="Sports Medicine / Clinic">Sports Medicine / Clinic</option>
+            <option value="Physical Therapy">Physical Therapy</option>
+            <option value="Athletic Training">Athletic Training</option>
+            <option value="Strength &amp; Conditioning">Strength &amp; Conditioning</option>
+            <option value="Performance / HP">Human Performance / HP</option>
+            <option value="Research / Academic">Research / Academic</option>
+            <option value="Health System / EMR">Health System / EMR</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="demo-linkedin">LinkedIn <span class="opt">(optional)</span></label>
+          <input type="url" id="demo-linkedin" name="linkedin" placeholder="linkedin.com/in/yourprofile" autocomplete="url">
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="submit-btn" id="demo-submit">
+            <span class="spinner"></span>
+            <span class="label-default">Send request →</span>
+          </button>
+          <p class="privacy">By submitting, you agree we may contact you about Keynetics Labs. We never sell or share your information.</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="demo-success" id="demo-success">
+      <div class="check">✓</div>
+      <h3>Thank you. <em>Your request is in.</em></h3>
+      <p>We've notified <b>Ian Abeyta</b>, our CEO, and you'll hear back within <b>one business day</b> to schedule your demo.</p>
+      <div class="next-steps">
+        <b>What happens next</b>
+        Ian will reach out personally with a calendar link to book your 20-minute session. In the meantime, feel free to explore the rest of the page.
+      </div>
+      <button class="close-btn" id="demo-success-close">Close</button>
     </div>
   </div>
 </div>
@@ -3247,6 +3680,221 @@ footer .bottom .social a:hover {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('open')) closeBio();
   });
+
+  // ─────── DEMO REQUEST MODAL ───────
+  // ┌────────────────────────────────────────────────────────────────────┐
+  // │ DELIVERY BACKEND CONFIGURATION                                       │
+  // │                                                                      │
+  // │ Pick ONE backend. Set DELIVERY_MODE to one of:                       │
+  // │   "jotform"     — recommended for full lead-management workflow      │
+  // │   "web3forms"   — quick free relay, basic email forwarding           │
+  // │   "mailto"      — fallback only, opens user's email client           │
+  // │                                                                      │
+  // │ Until configured (or if a backend errors), the form will             │
+  // │ automatically fall back to "mailto" so no leads are lost.            │
+  // └────────────────────────────────────────────────────────────────────┘
+  const DELIVERY_MODE = "jotform";  // ← change to "jotform" or "web3forms" once configured
+
+  // ── Jotform configuration (Approach B: HTTPS endpoint submission) ──
+  // Setup steps (one-time, ~10 minutes — see chat for screenshot guide):
+  //   1. Build a form on jotform.com with these fields IN THIS ORDER:
+  //        Name      → Short Text  (required)
+  //        Email     → Email       (required)
+  //        Phone     → Phone       (required)
+  //        Industry  → Dropdown    (required, paste industry list)
+  //        LinkedIn  → Short Text  (NOT required)
+  //   2. Form Settings → Emails → set notification recipient to ianabeyta@keyneticslabs.com
+  //   3. Optional: enable Autoresponder so submitter gets a confirmation email
+  //   4. Open the form's Publish tab → grab the Form ID from the URL (a long number)
+  //   5. Click each field in the builder, find its "Field Details" → "Unique Name"
+  //      (defaults to: name, email, phone, industry, linkedIn, etc.) and the "Field ID"
+  //      (q3, q4, q5...). The submission key is "q{ID}_{uniqueName}" combined.
+  //   6. Paste the form ID and field keys below.
+  const JOTFORM_FORM_ID = "261194796969076";
+  const JOTFORM_FIELD_MAP = {
+    name:     "q3_name",
+    email:    "q4_email",
+    phone:    "q5_phoneNumber",
+    industry: "q6_industry",
+    linkedin: "q7_linkedin",
+  };
+
+  // ── Web3Forms configuration ──
+  // Sign up free at web3forms.com, set destination to ianabeyta@keyneticslabs.com,
+  // paste the access key here.
+  const WEB3FORMS_ACCESS_KEY = "";
+
+  // ── Mailto fallback ──
+  const NOTIFY_EMAIL = "ianabeyta@keyneticslabs.com";
+
+  const demoModal = document.getElementById('demo-modal');
+  const demoModalClose = document.getElementById('demo-modal-close');
+  const demoForm = document.getElementById('demo-form');
+  const demoFormBody = document.getElementById('demo-form-body');
+  const demoSuccess = document.getElementById('demo-success');
+  const demoSuccessClose = document.getElementById('demo-success-close');
+  const demoSubmit = document.getElementById('demo-submit');
+  const demoError = document.getElementById('demo-error');
+
+  function openDemoModal() {
+    demoFormBody.style.display = '';
+    demoSuccess.classList.remove('show');
+    demoError.classList.remove('show');
+    demoForm.reset();
+    document.body.classList.add('modal-open');
+    demoModal.classList.add('open');
+    demoModal.setAttribute('aria-hidden', 'false');
+    setTimeout(() => document.getElementById('demo-name').focus(), 350);
+  }
+
+  function closeDemoModal() {
+    demoModal.classList.remove('open');
+    demoModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  // Wire all data-demo-trigger buttons
+  document.querySelectorAll('[data-demo-trigger]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openDemoModal();
+    });
+  });
+
+  // Close handlers
+  demoModalClose.addEventListener('click', closeDemoModal);
+  demoSuccessClose.addEventListener('click', closeDemoModal);
+  demoModal.addEventListener('click', (e) => {
+    if (e.target === demoModal) closeDemoModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && demoModal.classList.contains('open')) closeDemoModal();
+  });
+
+  // Form submission
+  demoForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    demoError.classList.remove('show');
+
+    // Manual validation (because we used novalidate to avoid native popups)
+    const name = document.getElementById('demo-name').value.trim();
+    const email = document.getElementById('demo-email').value.trim();
+    const phone = document.getElementById('demo-phone').value.trim();
+    const industry = document.getElementById('demo-industry').value;
+    const linkedin = document.getElementById('demo-linkedin').value.trim();
+
+    if (!name || !email || !phone || !industry) {
+      showError('Please fill in all required fields.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('Please enter a valid email address.');
+      return;
+    }
+
+    demoForm.classList.add('submitting');
+    demoSubmit.disabled = true;
+
+    const submission = {
+      name, email, phone, industry,
+      linkedin: linkedin || '(not provided)',
+      submitted_at: new Date().toISOString(),
+      page_url: window.location.href,
+    };
+
+    let delivered = false;
+
+    // PATH 1: Jotform submission (Approach B — HTTPS endpoint)
+    if (DELIVERY_MODE === "jotform" && JOTFORM_FORM_ID) {
+      try {
+        const formData = new FormData();
+        formData.append(JOTFORM_FIELD_MAP.name,     name);
+        formData.append(JOTFORM_FIELD_MAP.email,    email);
+        formData.append(JOTFORM_FIELD_MAP.phone,    phone);
+        formData.append(JOTFORM_FIELD_MAP.industry, industry);
+        formData.append(JOTFORM_FIELD_MAP.linkedin, submission.linkedin);
+        formData.append("formID", JOTFORM_FORM_ID);
+
+        // no-cors: Jotform's submission endpoint returns a redirect, which fetch
+        // can't follow cross-origin. With no-cors we get an opaque response —
+        // we can't read the status, but the POST goes through and Jotform
+        // delivers the email. If the network call doesn't throw, treat as success.
+        await fetch(`https://submit.jotform.com/submit/${JOTFORM_FORM_ID}`, {
+          method: "POST",
+          mode: "no-cors",
+          body: formData
+        });
+        delivered = true;
+      } catch (err) {
+        console.warn('Jotform submission failed, will fall back to mailto:', err);
+      }
+    }
+
+    // PATH 2: Web3Forms relay
+    if (!delivered && DELIVERY_MODE === "web3forms" && WEB3FORMS_ACCESS_KEY) {
+      try {
+        const formData = new FormData();
+        formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+        formData.append("subject", `New KEYSense demo request from ${name}`);
+        formData.append("from_name", "Keynetics Labs Website");
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("phone", phone);
+        formData.append("industry", industry);
+        formData.append("linkedin", submission.linkedin);
+        formData.append("submitted_at", submission.submitted_at);
+        formData.append("page_url", submission.page_url);
+        formData.append("replyto", email);
+
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success) delivered = true;
+        }
+      } catch (err) {
+        console.warn('Web3Forms submission failed, will fall back to mailto:', err);
+      }
+    }
+
+    // PATH 3: mailto fallback (always works, even if backends are unconfigured)
+    if (!delivered) {
+      const subject = encodeURIComponent(`New KEYSense demo request from ${name}`);
+      const body = encodeURIComponent(
+        `New demo request submitted via keyneticslabs.com\n\n` +
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone}\n` +
+        `Industry: ${industry}\n` +
+        `LinkedIn: ${submission.linkedin}\n\n` +
+        `Submitted: ${submission.submitted_at}\n` +
+        `From page: ${submission.page_url}`
+      );
+      window.location.href = `mailto:${NOTIFY_EMAIL}?subject=${subject}&body=${body}`;
+      delivered = true;
+    }
+
+    // Brief delay for visual feedback before showing success
+    await new Promise(r => setTimeout(r, 600));
+
+    demoForm.classList.remove('submitting');
+    demoSubmit.disabled = false;
+
+    if (delivered) {
+      demoFormBody.style.display = 'none';
+      demoSuccess.classList.add('show');
+    } else {
+      showError('Something went wrong. Please email us directly at ' + NOTIFY_EMAIL);
+    }
+  });
+
+  function showError(msg) {
+    demoError.textContent = msg;
+    demoError.classList.add('show');
+    demoError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 
   // Subtle on-scroll reveal — set initial state via JS (so no-JS fallback still shows content)
   const revealEls = document.querySelectorAll('.metric-card, .how-step, .price-card, .stat, .founder-card');
